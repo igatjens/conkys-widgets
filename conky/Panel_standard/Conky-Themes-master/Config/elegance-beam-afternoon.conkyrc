@@ -1,0 +1,51 @@
+
+# Theme		: elegance-beam-afternoon, based from Elegance-beam conky by capn-damo (https://capn-damo.deviantart.com/art/Elegance-beam-conky-691220003)
+# Author	: F Hamzah <fahrud26@gmail.com>
+# License	: Distributed under the terms of GNU GPL version 2 or later
+
+	alignment  top_right
+	background  no
+	border_inner_margin  15
+	border_width  5
+	default_color  ffffff  --ffffff # grey 5f5f5f 3F3F3F 183149 3B3B3B 26211F
+	double_buffer  yes
+	draw_borders  no
+	draw_graph_borders  no
+	draw_outline  no
+	draw_shades  no
+	gap_x  25
+	gap_y  25
+	maximum_width  320
+	double_buffer  yes
+	override_utf8_locale  yes
+    own_window  yes
+    own_window_class  desktop
+    own_window_type  normal
+	own_window_transparent  yes
+	own_window_hints  undecorated,below,skip_taskbar,skip_pager,sticky
+	own_window_argb_visual  yes
+	own_window_argb_value  150
+	text_buffer_size  8000
+	total_run_times  0
+	update_interval  1
+	uppercase  no
+	use_xft  yes
+	xftalpha  1
+	short_units  no
+	xftfont  Raleway:styleLight:pixelsize=16
+	color1  FFA843
+	color2  B56F1E
+	color3  6C5438
+
+
+TEXT
+${font Raleway:pixelsize=150}${alignr}${color1}${time %H}
+${voffset -35}${alignr}${color2}${time %M}
+${voffset -90}${color3}${font Raleway:pixelsize=20}${alignr}${time %A}  |  ${alignr}${time %B %d, %Y}${color}${font}
+${voffset 20}cpu1 ${alignr}${cpu cpu1}%
+cpu2 ${alignr}${cpu cpu2}%
+ram ${alignr}${mem} / ${memmax}
+swap ${alignr}${swap} / ${swapmax}
+system  ${alignr}${fs_used_perc /}% / ${fs_size /}
+home  ${alignr}${fs_used_perc /home}% / ${fs_size /home}
+${voffset 30}${font Raleway:pixelsize=18}${alignr}${color3}Linux  ${kernel}${color}

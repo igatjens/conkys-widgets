@@ -1,0 +1,104 @@
+#                                         db         db
+#                                        dpqb       dp8b
+#                                        8b qb_____dp_88
+#                                        88/ .        `p
+#                                        q'.            \
+#                                       .'.  .-.    ,-.  `--.
+#                                       |.  / 0 \  / 0 \ |   \
+#                                       |.  `.__   ___.' | \\/
+#                                       |.       "       | (
+#                                        \.    `-'-'    ,' |
+#                                       _/`------------'. .|
+#                                     /.  \\::(::[];)||.. \
+#                                    /.  ' \.`:;;;;'''/`. .|
+#                                   |.   |/ `;--._.__/  |..|
+#                                   |.  _/_,'''',,`.    `:.'
+#                                   |.     ` / ,  ',`.   |/     
+#                                    \.   -'/\/     ',\  |\         
+#                                    /\__-' /\ /     ,. |.\       
+#                                   /. .|  '  /-.    ,: |..\
+#                                  :.  .|    /| | ,  ,||. ..:
+#                                  |.  .`     | '//` ,:|.  .|
+#                                  |..  .\      //\/ ,|.  ..|
+#                                   \.   .\     <./  ,'. ../
+#                                    \_ ,..`.__    _,..,._/
+#                                      `\|||/  `--'\|||/'
+#                                 db    88  dP 88 88""Yb    db           
+#                                dPYb   88odP  88 88__dP   dPYb                
+#                               dP__Yb  88"Yb  88 88""Yb  dP__Yb              
+#                              dP""""Yb 88  Yb 88 88oodP dP""""Yb  
+#
+#
+# -In the Widget you can see the status of CPU, RAM, Hard Disk and Time.
+# -This code is completely free for use in conky manager under license regulation of open software.    
+# -Move this content along with the folder to the route: ~Home~/.conky and install the fonts manually.
+###################################################################################################
+###################################################################################################
+###################################################################################################
+background yes
+use_xft yes
+xftfont Roboto:size=9
+xftalpha 0.8
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_type dock
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_margin 5
+border_width 1
+default_color 000000
+default_shade_color 000000
+default_outline_color 000000
+minimum_size 900 200
+maximum_width 900
+gap_x 0
+gap_y 0
+alignment middle_middle
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+short_units yes
+text_buffer_size 2048
+use_spacer none
+override_utf8_locale yes
+lua_load rings-v1.2.1.lua
+lua_draw_hook_pre ring_stats
+
+
+# Text settings #
+use_xft yes
+xftalpha 0
+xftfont :bold:size=10
+override_utf8_locale yes
+lua_load ~/.conky/Originales/Final_Fantasy_conky/Lua/time.lua
+
+# Color scheme #
+default_color white
+color1 212021 
+color2 white#E8E1E6
+color3 71D1E8
+
+own_window_argb_value 0
+own_window_argb_visual yes
+own_window_colour 000000
+TEXT
+
+
+${offset 20}${voffset 120}${font FinalFantasyElements:size=200}P${font}
+${offset 450}${voffset -30}${font FinalFantasyElements:size=95}f${font}
+${offset 360}${voffset -390}${color2}${font ferrum:size=90}${time %l:%M}${font ferrum:size=38}
+${offset 320}${voffset 20}${time %B %d, %Y}${font ferrum:size=18}
+${offset 380}${voffset 10}Cpu:${color3}
+${offset 380}${cpu cpu0}%${color2}
+${offset 460}${voffset -49}Mem:${color3}
+${offset 460}$memperc %${color2}
+${offset 550}${voffset -50}Home:${color3}
+${offset 555}$fs_used_perc %

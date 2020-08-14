@@ -1,0 +1,82 @@
+##CONKY BY IACOPOROSSO####
+#FUNZIONAMENTO DEL CONKY
+  total_run_times 0                     #Temps en secondes ; 0 = toujours actif
+  background yes                         #Pour que conky tourne en arrière plan ; no = pour les tests
+
+#SISTEMA
+  cpu_avg_samples 1                     #Nb d'échantillons pour calculer la moyenne d'utilisation CPU
+  net_avg_samples 2                     #Nb d'échantillons pour calculer la moyenne d'utilisation CPU
+
+#MEMORIA
+  double_buffer yes                     #Éviter le clignotement
+  no_buffers yes                        #Soustraire les mémoires tampons de la mémoire utilisée
+  text_buffer_size 1024                 #Taille du cache pour le texte
+
+#DISPLAY
+  out_to_console no                     #Affiche le texte sur la sortie standard
+  update_interval 1                     #FREQUENZA DI REFRESH DELLA FINESTRA
+
+#FINESTRA DEL CONKY
+alignment top_left
+ #---
+minimum_size 0 0
+  maximum_width 137                     #LARGHEZZA MASSIMA (px)
+ #---
+gap_x 2
+gap_y 170
+
+                          #SCARTO DAL BORDO SUP/INF
+ #---
+  draw_shades no                        #Afficher les ombres
+  draw_outline no                       #Afficher les contours de fenêtre
+  draw_borders no                       #Afficher des contours autour des blocs de texte
+  border_width 1                        #Largeur du contour
+  border_inner_margin 1                 #Largeur des marges
+  draw_graph_borders no
+ #---
+  own_window yes                        #Utiliser sa propre fenêtre
+  own_window_type desktop              #Type de fenêtre ; normal / override / desktop
+own_window_transparent no
+
+#FORMATTAZIONE
+  use_xft yes                           #Utiliser Xft (polices lissées etc)
+  xftalpha .1                           #Utiliser Xft
+  override_utf8_locale yes              #Force l'UTF8
+  uppercase no                          #Tout le texte en majuscule
+  use_spacer right                      #Ajoute des espaces après certains objets (qu'avec des polices fixes)
+ #---
+  xftfont Visitor TT1 BRK :size=9               #Police par défaut
+ #---
+
+#COLORI
+  default_color ffffff                  #Couleur par défaut
+ #---
+  color1     000000
+  color2     797979
+  color3     00C2FF
+
+ #---
+  short_units yes                       #Unités courtes
+  pad_percents 2                        #Unité à 2 décimales
+
+#STRINGHE CI CARICAMENTO  FUNZIONI LUA
+
+own_window_argb_value 0
+own_window_argb_visual yes
+own_window_colour 000000
+TEXT
+
+${font aller display :size=8}${image ~/.conky/Panel_standard/Mint/Scripts/pix/bildskin2.png -p -10,0 -s 153x236}
+
+${offset 35}$uptime
+${offset 20}${cpubar cpu6 0,87}
+${offset 15}cpu                      ${cpu cpu1} %
+${offset 15}cpu                      ${cpu cpu2} %
+${offset 15}ram                    $memperc %
+${offset 20}${cpubar cpu6 0,87}
+${offset 15}temp cpu           ${hwmon temp 1}°
+${offset 15}temp hd             ${hddtemp /dev/sda}°
+${offset 20}${cpubar cpu6 0,87}
+${offset 30}${if_up ppp0}$color3 tim   online $else $color tim   offline $endif $color
+${offset 15}down                 ${downspeed wlp3s0}
+${offset 15}up                         ${upspeed wlp3s0}

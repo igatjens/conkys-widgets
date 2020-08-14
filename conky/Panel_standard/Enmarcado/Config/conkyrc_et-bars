@@ -1,0 +1,93 @@
+background no
+update_interval 0.5
+update_run_times 0
+total_run_times 0
+
+cpu_avg_samples 2
+net_avg_samples 2
+temperature_unit celcius
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 1024
+imlib_cache_size 0
+
+own_window yes
+own_window_class Conky
+own_window_type desktop
+own_window_transparent no
+own_window_argb_visual no
+own_window_argb_value 0
+own_window_colour 000000
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+out_to_console no
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 2
+border_margin 180
+border_inner_margin 0
+border_width 2
+border_outer_margin 0
+
+minimum_size 215 220
+maximum_width 216
+
+alignment middle_left
+gap_x 20
+gap_y 0
+
+use_xft yes
+override_utf8_locale yes
+xftfont Decker:size=8
+xftalpha 1
+uppercase no
+use_spacer none
+
+default_color  FFFFF0
+
+lua_load ~/.conky/Panel_standard/Enmarcado/Lua/draw-bg.lua
+
+TEXT
+${voffset 20}${goto 83}${font Decker:size=8}${color}DATE & TIME
+\
+${voffset 7}${goto 32}${font Decker:size=35}${color}${time %H}${color}
+${voffset -20}${goto 32}${font Decker:size=35}${color}${time %M}
+\
+${voffset -92}${goto 125}${font Decker:size=45}${color}${time %d}${color}
+\
+${voffset -55}${goto 130}${font Decker:size=10}${color}${time %b %Y}${color}
+\
+${voffset 38}${goto 74}${font Decker:size=8}${color}STATUS NETWORK${color}
+${voffset 17}${goto 10}${color}SSID : ${alignr 8}${wireless_essid wlp3s0}
+${voffset 2}${goto 10}${color}Speed : ${alignr 8}${wireless_bitrate wlp3s0}
+${voffset 2}${goto 10}${color}Signal : ${alignr 8}${wireless_link_qual_perc wlp3s0} %
+${voffset 2}${goto 10}${color}Upload : ${alignr 8}${upspeedf wlp3s0}
+${voffset 2}${goto 10}${color}Download : ${alignr 8}${downspeedf wlp3s0}${color}
+\
+${voffset 19}${goto 74}${font Decker:size=8}${color}SYSTEM MONITOR
+${voffset 21}${goto 10}${color}Core 1 :${alignr 8}${cpu cpu1} %
+${voffset -24}${goto 55}${cpugraph cpu1 22,120 333344 333344 -t -l}
+${voffset 10}${goto 10}${color}Core 2 :${alignr 8}${cpu cpu2} %
+${voffset -23}${goto 55}${cpugraph cpu2 22,120 333344 333344 -t -l}
+${voffset 9}${goto 10}${color}Temp :${alignr 8}${acpitemp}°C
+${voffset -23}${goto 55}${loadgraph 22,120 333344 333344 -l}
+${voffset -33}${goto 25}${color6}${font OpenLogos:size=100}v${font}
+\
+${lua conky_draw_bg 5 5 10 210 132 0x333344 1} #Background Main
+${lua conky_draw_bg 20 60 19 100 20 0x00C0D5 0.8} #Bg Title Date & time
+${lua conky_draw_bg 5 20 50 80 80 0x00C0D5 0.8} #Bg Time
+${lua conky_draw_bg 5 120 50 80 80 0x00C0D5 0.8} #Bg Date
+\
+${lua conky_draw_bg 5 5 150 210 320 0x333344 1} #Background Main
+${lua conky_draw_bg 20 64 160 100 20 0x00C0D5 0.8} #Bg Status Network
+${lua conky_draw_bg 0 5 190 210 86 0x00C0D5 0.8} #Bg SSID Speed Signal Upload Download
+${lua conky_draw_bg 20 64 288 100 20 0x00C0D5 0.8} #Bg System Monitor
+${lua conky_draw_bg 0 5 320 210 25 0x00C0D5 0.8} #Bg Core 1
+${lua conky_draw_bg 0 5 357 210 25 0x00C0D5 0.8} #Bg Core 2
+${lua conky_draw_bg 0 5 393 210 25 0x00C0D5 0.8} #Bg Load
+${voffset -300}
+##============================= Regards, Etles_Team ========================================##

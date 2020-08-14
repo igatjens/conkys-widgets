@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -f ~/.conky/onPOP ]; then
+	rm ~/.conky/onPOP && kill $(ps -C 'conky' -o pid,cmd | awk '/rc3/ {print $1}')
+else
+	cp ~/.conky/offPOP ~/.conky/onPOP && conky -c ~/.conky/rc3
+
+fi

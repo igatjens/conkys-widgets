@@ -1,0 +1,57 @@
+
+=======================================================================
+
+Ffirst special thanks for Adslgate.conky to Sami Safhy
+
+===================================
+
+Adslgate.conky+my work = conky max
+
+===================================
+
+You can hide and unhide the conky by clicking on the shortcut 
+
+How to config this conky:
+
+1- copy .conky to your home folder.
+
+2- right click on conky => Properties => command =>/home/max/.conky/pop    then change max to your username.
+
+3- install the conky_symbols_by_wiltur-d3ij3mi font .
+
+3.1. Go to terminal then write the following(Just use copy and paste):
+
+sudo apt-get install conky-all curl hddtemp lm-sensors python-statgrab
+
+then run those commands on terminal(Just use copy n paste):
+
+$ sudo chmod u+s /usr/sbin/hddtemp
+
+$ sudo sensors-detect
+
+Here in the 2nd command you will get YES/NO.so here you have to choose YES by closing your eyes :p.
+
+4- open rc3 with any editor and go to line 54 "u" is the distribution logo change it to your distro. 
+
+5- go to line 55 change "Linux Mint" to whatever you want.
+
+6- if you have CPU with 2 cores  don't change anything .. and if you have more than 2 cores just add it.
+
+7- from line 86 to 92 modify your HDD just name and directory . 
+
+8- Lines 93--104  if you are using wireless don't change them, and if you are using ethernet  you must modify.
+
+9- save file.
+
+Run conky from the shortcut 
+
+==============================
+
+=sorry for may poor english  =
+
+==============================
+
+
+
+
+

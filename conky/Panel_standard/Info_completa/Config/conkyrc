@@ -1,0 +1,125 @@
+# -- Conky settings -- #
+#background no
+update_interval 1
+ 
+cpu_avg_samples 2
+net_avg_samples 2
+ 
+override_utf8_locale yes
+ 
+double_buffer yes
+no_buffers yes
+ 
+text_buffer_size 2048
+imlib_cache_size 0
+ 
+# -- Window specifications -- #
+ 
+#own_window_class Conky
+own_window yes
+own_window_type desktop
+own_window_argb_visual yes
+own_window_argb_value 0
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+ 
+border_inner_margin 0
+border_outer_margin 0
+ 
+minimum_size 1050 550
+maximum_width 1050
+ 
+alignment top_right
+gap_x 20
+gap_y 30
+ 
+# -- Graphics settings -- #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+ 
+# -- Text settings -- #
+use_xft yes
+xftfont Droid Sans:size=10
+xftalpha 0.8
+short_units yes
+
+uppercase no
+ 
+default_color FFFFFF
+ 
+# -- Lua Load -- #
+lua_load ~/.conky/Panel_standard/Info_completa/Lua/marks.lua
+lua_draw_hook_pre main_rings
+lua_load ~/.conky/Panel_standard/Info_completa/Lua/rings.lua
+lua_draw_hook_post main
+ 
+own_window_colour 000000
+TEXT
+
+${voffset 90}
+${alignr 280}${font virgo 01:size=24}${time %d %B %Y}${font}
+
+${goto 320}${hr 1}
+
+${voffset -10}${goto 360}${color #4A78FF}CPU1:${goto 400}$color${cpu cpu0}%
+${color #4A78FF}${goto 360}FREQ:${color}${goto 400}${freq}
+${color #4A78FF}${goto 360}Temp:${color}${goto 400}${acpitemp}°C
+
+${voffset -68}${color #4A78FF}${goto 460}MEM${goto 500}$color${memperc} %
+${color #4A78FF}${goto 460}Used:$color${goto 500}${mem}
+${color #4A78FF}${goto 460}Free:$color${goto 500}${memeasyfree}
+
+${voffset -68}${color #4A78FF}${goto 560}HOME${goto 600}$color${fs_used_perc /} %
+${color #4A78FF}${goto 560}Used:${goto 600}$color${fs_used /}
+${color #4A78FF}${goto 560}Free:${goto 600}$color${fs_free /}
+
+${voffset -68}${color #4A78FF}${goto 660}FAT32${goto 700}$color${fs_used_perc /media/win-D} %
+${color #4A78FF}${goto 660}Used:${goto 700}$color${fs_used /media/win-D}
+${color #4A78FF}${goto 660}Free:${goto 700}$color${fs_free /media/win-D}
+
+${voffset -68}${color #4A78FF}${goto 760}SWAP:$color${goto 800}${swapperc} %
+${goto 760}${color #4A78FF}Used:${goto 800}$color${swap}
+${goto 760}${color #4A78FF}Free:${goto 800}$color${swapfree}
+
+${voffset -60}${color #FF8F00}${goto 890}NETWORK:$color
+
+${voffset -15}${goto 890}${downspeedf wlp3s0}${goto 980}Down
+${color #4A78FF}${goto 890}Total${goto 980}$color${totaldown wlp3s0}
+
+${voffset 0}${goto 890}${upspeedf wlp3s0}${goto 980}Up
+${color #4A78FF}${goto 890}Total${goto 980}$color${totalup wlp3s0}
+
+${goto 890}${color #FF8F00}Processes CPU:$color${font droid sans:size=8}
+${goto 890}${top name 1}${goto 980}${top cpu 1} %
+${goto 890}${top name 2}${goto 980}${top cpu 2} %
+${goto 890}${top name 3}${goto 980}${top cpu 3} %
+${goto 890}${top name 4}${goto 980}${top cpu 4} %
+${goto 890}${top name 5}${goto 980}${top cpu 5} %${font}
+
+${goto 890}${color #FF8F00}Processes MEM:$color${font droid sans:size=8}
+${goto 890}${top name 1}${goto 980}${top mem 1} %
+${goto 890}${top name 2}${goto 980}${top mem 2} %
+${goto 890}${top name 3}${goto 980}${top mem 3} %
+${goto 890}${top name 4}${goto 980}${top mem 4} %
+${goto 890}${top name 5}${goto 980}${top mem 5} %${font}
+
+${goto 890}${color #FF8F00}Internet 
+${goto 890}Consumption:$color${font}
+     
+${goto 890}${color #4A78FF}Today:$color${goto 950}${execi 600 vnstat | grep "today" | awk '{print $8}'}${goto 1000}${execi 600 vnstat | grep "today" | awk '{print $9}'} 
+${goto 890}${color #4A78FF}Week:$color${goto 950}${execi 600 vnstat -w | grep "current week" | awk '{print $9}'}${goto 1000}${execi 600 vnstat -w | grep "current week" | awk '{print $10}'} 
+${goto 890}${color #4A78FF}Month:$color${goto 950}${execi 600 vnstat -m | grep "`date +"%b '%y"`" | awk '{print $9}'}${goto 1000}${execi 600 vnstat -m | grep "`date +"%b '%y"`" | awk '{print $10}'} 
+${goto 890}${font Liberation:style=Bold:pixelsize=10}${voffset -3}${hr 1}
+
+#${voffset 0}${execpi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=2295420&u=c" -o ~/.cache/weather.xml}${font Droid Sans:size=12}${goto 890}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+#${goto 890}${voffset 0}${font Droid Sans:size=14}${goto 990}${color #FF8F00}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} °${font}
+#${execi 300 cp -f ~/conky-manager/themes/conky07/conky-google-now/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*").png ~/.cache/weather.png}${image ~/.cache/weather.png -p 150,605 -s 30x30}
+#${voffset -15}${goto 890}${font Droid Sans:size=8}${color}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | tr '[a-z]' '[A-Z]'}
+
+#${font Droid Sans:size=12}${color #FF8F00}${goto 890}Bangalore:$color
+#${font Droid Sans:size=10}${goto 890}${execi 300 /home/neysa/.weather.sh 204108 | sed -n 2p | cut -c 6-21} °C
+
+
+
