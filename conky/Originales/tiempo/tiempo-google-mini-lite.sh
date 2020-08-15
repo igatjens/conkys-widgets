@@ -17,4 +17,4 @@ actualizacion=$(date +"%A %H:%M")
 
 echo "\t\t"$temperatura_actual"\n\t\t"$condicion_actual"\n"
 echo $ubicacion
-echo "\n"$actualizacion
+echo $actualizacion
