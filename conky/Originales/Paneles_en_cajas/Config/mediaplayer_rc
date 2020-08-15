@@ -1,17 +1,17 @@
 background no
-font sans:size=10
-#xftfont sans:size=10
+font Oswald:size=10
+#xftfont Oswald:size=10
 use_xft yes
 xftalpha 0.9
 update_interval 2
 total_run_times 0
 own_window yes
 own_window_type dock
-#own_window_transparent yes
+#own_window_transparent no
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-own_window_argb_visual true
-own_window_argb_value 180
-own_window_colour 224466
+own_window_argb_visual yes
+own_window_argb_value 230
+own_window_colour DDDDDD
 double_buffer yes
 minimum_size 225 120
 #maximum_size 220
@@ -21,9 +21,9 @@ draw_borders no
 draw_graph_borders yes
 default_color 101010
 default_shade_color 101010
-alignment top_left
-gap_x 40#320
-gap_y 353#510
+alignment top_right
+gap_x 320
+gap_y 554
 no_buffers yes
 cpu_avg_samples 1
 uppercase no
@@ -31,10 +31,11 @@ border_inner_margin 15
 default_bar_size 144 6
 
 #colors
-color1 96A0DF
-color2 aaa
-color3 ddd
+color1 fe504f
+color2 283b50
+color3 101010
 
+own_window_transparent no
 TEXT
 ${color1}${font Oswald:size=10:bold}MEDIA PLAYER ${color2} ${hr 2}
 ${if_match "${execi 10 python3 ~/.conky/Originales/Paneles_en_cajas/Scripts/mediaplayer.py clementine -i}"=="yes"}

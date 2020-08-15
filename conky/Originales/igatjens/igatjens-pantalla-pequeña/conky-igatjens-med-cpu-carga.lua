@@ -28,12 +28,14 @@ function conky_main()
     if conky_window == nil then
         return
     end
+
     local cs = cairo_xlib_surface_create(conky_window.display,
                                          conky_window.drawable,
                                          conky_window.visual,
                                          conky_window.width,
                                          conky_window.height)
     cr = cairo_create(cs)
+
 
     -- Establecer tipo de fuente
     set_fuente(cr)
@@ -42,10 +44,14 @@ function conky_main()
     local radio = calcular_radio_medidor(conky_window.height)
     local posicion_x = calcular_posicion_x_medidor( radio ) + get_med_disk_margen_izquierdo( )
     local posicion_y = calcular_posicion_y_medidor( radio )
+    local num_nucleos = get_num_nucleos( )
 
+    if num_nucleos < 1 then 
+        return 
+    end
     
     -- CPU --
-    medidor_cpu_carga(cr, posicion_x, posicion_y, radio, get_num_nucleos( ))
+    medidor_cpu_carga(cr, posicion_x, posicion_y, radio, num_nucleos)
 
     
 

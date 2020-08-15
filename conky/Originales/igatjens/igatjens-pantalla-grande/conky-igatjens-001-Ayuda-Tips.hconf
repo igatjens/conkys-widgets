@@ -62,7 +62,7 @@ FONDO TRANSPARENTE
         widgets en un śólo paso.
 
 ANCHO DE BANDA
-        El widget << conky-igatjens-med-memoria >> muestra medidas respecto al ancho de banda de Internet, por defecto establecido
+        El widget << conky-igatjens-med-internet >> muestra medidas respecto al ancho de banda de Internet, por defecto establecido
         en 6 Mbps de descarga y 2 Mbps de subida. Modifique si es necesario
                 - local ancho_banda_descarga
                 - local ancho_banda_subida
@@ -91,7 +91,7 @@ CAMBIO DE TAMAÑO Y POSICIÓN DE LOS BLOQUES
 MEJORAR EL COLOR DE LO GRÁFICOS       
         Si el color de los gráficos es muy pálido al usar Transparency Type Transparent, establezca las variables "own_window_argb_value" 
         del .conf correspondiente como se muesta a continuación
-                own_window_argb_value 255
+                own_window_argb_value 230
 
 TEMPERATURA DE CPU
         Puede activar la temperatura del procesador modificando "mostrar_temp_cpu" y "med_cpu_temp_dev" en 

@@ -15,11 +15,11 @@ own_window_transparent yes
 # may vary. Comment/uncomment to suit.
 ##############################################
 ## no compositor
-#own_window_type override
-#own_window_argb_visual no
+#own_window_type dock
+#own_window_argb_visual yes
 
 ## xcompmgr
-#own_window_type override
+#own_window_type dock
 #own_window_argb_visual yes
 
 ## cairo-compmgr
@@ -43,7 +43,6 @@ minimum_size 600 600
 maximum_width 600
 gap_x 500
 gap_y 85
-alignment top_right
 no_buffers yes
 uppercase no
 cpu_avg_samples 2

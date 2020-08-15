@@ -1,6 +1,6 @@
 background no
-font sans:size=10
-#xftfont sans:size=10
+font Oswald:size=10
+#xftfont Oswald:size=10
 use_xft yes
 xftalpha 0.9
 update_interval 1
@@ -8,11 +8,11 @@ imlib_cache_size 0
 total_run_times 0
 own_window yes
 own_window_type dock
-#own_window_transparent yes
+#own_window_transparent no
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-own_window_argb_visual true
-own_window_argb_value 180
-own_window_colour 224466
+own_window_argb_visual yes
+own_window_argb_value 230
+own_window_colour DDDDDD
 double_buffer yes
 minimum_size 225 100
 draw_shades no
@@ -21,9 +21,9 @@ draw_borders no
 draw_graph_borders yes
 default_color 101010
 default_shade_color 101010
-alignment top_left
-gap_x 40#320
-gap_y 530#353
+alignment top_right
+gap_x 320
+gap_y 376
 no_buffers yes
 cpu_avg_samples 1
 uppercase no
@@ -31,18 +31,22 @@ border_inner_margin 15
 if_up_strictness link
 
 #colors
-color1 96A0DF
-color2 aaa
-color3 ddd
+color1 fe504f
+color2 283b50
+color3 101010
 
+template1 wlp5s0
+template2 enp1s0
+
+own_window_transparent no
 TEXT
 ${color1}${font Oswald:size=10:bold}NETWORK ${color2} ${hr 2}
-${if_up wlp3s0}
-${color3}${font Open Sans:size=9}Down: ${downspeed wlp3s0}/s ${alignr}Up: ${upspeed wlp3s0} /s
-${color1}${color1}${downspeedgraph wlp3s0 20,90 444444 eeeeee} ${alignr}${color1}${upspeedgraph wlp3s0 20,90 444444 eeeeee}
-${color3}  Total: ${totaldown wlp3s0} ${alignr}Total: ${totalup wlp3s0}
-${else}${if_up enp0s20u1}
-${color3}${font Open Sans:size=9}Down: ${downspeed enp0s20u1}/s ${alignr}Up: ${upspeed enp0s20u1} /s
-${color1}${color1}${downspeedgraph enp0s20u1 20,90 444444 eeeeee} ${alignr}${color1}${upspeedgraph enp0s20u1 20,90 444444 eeeeee}
-${color3}  Total: ${totaldown enp0s20u1} ${alignr}Total: ${totalup enp0s20u1}
+${if_up $template1}
+${color3}${font Open Sans:size=9}Down: ${downspeed $template1}/s ${alignr}Up: ${upspeed $template1} /s
+${color1}${color1}${downspeedgraph $template1 20,90 444444 eeeeee} ${alignr}${color1}${upspeedgraph $template1 20,90 444444 eeeeee}
+${color3}  Total: ${totaldown $template1} ${alignr}Total: ${totalup $template1}
+${else}${if_up $template2}
+${color3}${font Open Sans:size=9}Down: ${downspeed $template2}/s ${alignr}Up: ${upspeed $template2} /s
+${color1}${color1}${downspeedgraph $template2 20,90 444444 eeeeee} ${alignr}${color1}${upspeedgraph $template2 20,90 444444 eeeeee}
+${color3}  Total: ${totaldown $template2} ${alignr}Total: ${totalup $template2}
 ${endif}

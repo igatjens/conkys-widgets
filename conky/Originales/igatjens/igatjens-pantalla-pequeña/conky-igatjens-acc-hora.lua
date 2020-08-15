@@ -55,7 +55,7 @@ function mostrar_fecha_hora( cr, posicion_x_param, posicion_y_param, alto, marge
     margen = margen or 10
     local escala = porcentaje( 83, alto-(margen*2))/100
     local letra_size_grande = 64 * escala
-    local letra_size_fecha = 24 * escala
+    local letra_size_fecha = 25 * escala
     local posicion_x = margen + posicion_x_param
     local posicion_y = margen + letra_size_grande - 15*escala + posicion_y_param
     local separacion = 4 * escala
@@ -66,6 +66,6 @@ function mostrar_fecha_hora( cr, posicion_x_param, posicion_y_param, alto, marge
     texto = conky_parse( "${time :%S}" )
     mostrar_texto(cr, posicion_x+160*escala, posicion_y - letra_size_grande*0.375, letra_size_grande/2, texto )
 
-    texto = conky_parse( "${time %a %d %B %Y}" )
+    texto = conky_parse( "${time %a %d %b %Y}" )
     mostrar_texto(cr, posicion_x, posicion_y + letra_size_fecha + separacion, letra_size_fecha, texto )
 end

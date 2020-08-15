@@ -3,7 +3,7 @@
 # Author	: F Hamzah <fahrud26@gmail.com>
 # License	: Distributed under the terms of GNU GPL version 2 or later
 
-	alignment  top_right
+	alignment 
 	background  no
 	border_inner_margin  15
 	border_width  5
@@ -13,18 +13,18 @@
 	draw_graph_borders  no
 	draw_outline  no
 	draw_shades  no
-	gap_x  25
-	gap_y  25
+	gap_x 
+	gap_y 
 	maximum_width  320
 	double_buffer  yes
 	override_utf8_locale  yes
     own_window  yes
     own_window_class  desktop
-    own_window_type  normal
-	own_window_transparent  yes
-	own_window_hints  undecorated,below,skip_taskbar,skip_pager,sticky
-	own_window_argb_visual  yes
-	own_window_argb_value  150
+    own_window_type dock
+	own_window_transparent yes
+	own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+	own_window_argb_visual yes
+	own_window_argb_value 
 	text_buffer_size  8000
 	total_run_times  0
 	update_interval  1

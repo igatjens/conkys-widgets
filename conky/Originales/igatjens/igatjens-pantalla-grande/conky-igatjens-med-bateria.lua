@@ -62,7 +62,7 @@ function medidor_bateria(cr, centro_x, centro_y, radio)
 
     -- mostrar medidor
     if bateria_porciento > 10 then
-        set_color_fusia(cr)
+        set_color_verde(cr)
     else
         set_color_rojo(cr)
     end
@@ -71,7 +71,7 @@ function medidor_bateria(cr, centro_x, centro_y, radio)
 
     -- tiempo restante
     if bateria_porciento > 20 then
-        set_color_verde(cr)
+        set_color_azul(cr)
     else
         set_color_rojo(cr)
     end

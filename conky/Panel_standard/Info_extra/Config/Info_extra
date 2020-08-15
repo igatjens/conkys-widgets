@@ -58,8 +58,8 @@ alignment top_right
     background  no
     own_window_class  Conky
 own_window_transparent yes
-    own_window_type  desktop
-    own_window_hints  undecoratedbelowstickyskip_taskbarskip_pager
+    own_window_type dock
+    own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 
     uppercase  no

@@ -15,9 +15,9 @@ gap_y 150
 maximum_width 450
 minimum_size 450 450
 own_window yes
-own_window_type desktop
+own_window_type dock
 own_window_transparent yes
-own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 border_inner_margin 0
 border_outer_margin 0
 alignment top_middle

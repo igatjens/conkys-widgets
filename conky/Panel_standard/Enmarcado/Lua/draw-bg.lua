@@ -11,7 +11,7 @@ The command after line "TEXT" in conkyrc file is for setting background (see bel
 
 lua_load ~/.conky/Conky-Name/scripts/lua/draw_bg.lua
 
-TEXT
+#TEXT
 
 ${lua conky_draw_bg 20 0 0 0 0 0x000000 0.4}
 ---------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ You can load/call this script with full command before line "TEXT" in conkyrc fi
 lua_load ~/.conky/Conky-Name/scripts/lua/draw_bg.lua
 lua_draw_hook_pre draw_bg 0 0 0 0 0 0xeeeeee 0.4
 
-TEXT
+#TEXT
 
 ]]
 ------------------------------------------------------------------------------------------------------------

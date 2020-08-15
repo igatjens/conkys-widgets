@@ -37,7 +37,7 @@
 ###################################################################################################
 background yes
 use_xft yes
-xftfont Roboto:size=9
+xftfont ferrum:size=9
 xftalpha 0.8
 update_interval 1
 total_run_times 0

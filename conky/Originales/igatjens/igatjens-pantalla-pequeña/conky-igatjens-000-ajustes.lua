@@ -23,8 +23,8 @@
 		-- consulte su ancho de banda en www.speedtest.net
 		-- check your bandwidth at www.speedtest.net
 
-		local ancho_banda_descarga	= 6			-- en Mbps -- in Mbps
-		local ancho_banda_subida	= 2			-- en Mbps -- in Mbps
+		local ancho_banda_descarga	= 10			-- en Mbps -- in Mbps
+		local ancho_banda_subida	= 3			-- en Mbps -- in Mbps
 
 -- DISPOSITIVOS DE RED -- NETWORK DEVICES --
 
@@ -47,7 +47,16 @@
 		-- it requires installing and configuring sensors - it does not work in most cases
 		
 		local mostrar_temp_cpu = false
-		local med_cpu_temp_dev = 2			-- valores entre 1 y 5 - values between 1 and 5
+		local med_cpu_temp_dev = 1			-- valores entre 1 y 5 - values between 1 and 5
+
+
+-- CONFIGURACION DE HORAS LABORALES -- CONFIGURATION OF WORK HOURS --
+		
+		local hora_laboral_inicio 	= 08		-- valores entre 0 y 23 - values between 00 and 23
+		local minuto_laboral_inicio	= 00		-- valores entre 0 y 59 - values between 00 and 59
+
+		local hora_laboral_fin 		= 17	-- valores entre 0 y 59 - values between 00 and 59
+		local minuto_laboral_fin 	= 00		-- valores entre 0 y 59 - values between 00 and 59
 
 
 
@@ -56,19 +65,19 @@
 -- ACCESORIOS
 
 		-- conky-igatjens-acc-hora
-		local acc_hora_margen_superior	 		= 0
+		local acc_hora_margen_superior	 		= 15
 
 		-- conky-igatjens-acc-hora
-		local acc_hora_margen_izquierdo 		= 68
+		local acc_hora_margen_izquierdo 		= 105
 
 		-- conky-igatjens-acc-maquina
-		local acc_maquina_margen_superior 		= 0
+		local acc_maquina_margen_superior 		= 15
 
 		-- conky-igatjens-acc-maquina
 		local acc_maquina_margen_derecho 		= 0
 
 		-- conky-igatjens-acc-pie
-		local acc_pie_margen_superior	 		= 5
+		local acc_pie_margen_superior	 		= 10
 
 
 -- MEDIDORES
@@ -76,6 +85,8 @@
 		-- conky-igatjens-med-bateria
 		local med_bateria_margen_izquierdo 		= 0
 
+		-- conky-igatjens-med-cpu-carga
+		local med_cpu_carga_margen_izquierdo 	= 0
 
 		-- conky-igatjens-med-cpu
 		local med_cpu_margen_izquierdo 			= 0
@@ -137,31 +148,25 @@ function get_med_red_ancho_banda_subida( ) return ancho_banda_subida end
 
 function get_red_WiFi_dev( )
 	
-	print("WiFi_dev "..WiFi_dev)
 	if WiFi_dev == "" then
 		local wifi = conky_parse( "${exec ip addr | grep \\ w..*: | cut -d \" \" -f2 | sed -e 's/.$//' | sed '2,10d'}" )
 		if wifi == "" then 
 			wifi = "wlan0"
 		end
-		print("wifi "..wifi.."\n")
 		return wifi
 	end
-	print("WiFi_dev "..WiFi_dev.."\n")
 	return WiFi_dev
 end
 
 
 function get_red_LAN_dev( )
-	print("LAN_dev "..LAN_dev)
 	if LAN_dev == "" then
 		local lan = conky_parse( "${exec ip addr | grep \\ e..*: | cut -d \" \" -f2 | sed -e 's/.$//' | sed '2,10d'}" )
 		if lan == "" then 
 			lan = "eth0"
 		end
-		print("lan "..lan.."\n")
 		return lan
 	end
-	print("LAN_dev "..LAN_dev.."\n")
 	return LAN_dev
 end
 
@@ -178,10 +183,26 @@ function get_med_disk_paticion02( ) return particion02 end
 function get_med_disk_paticion03( ) return particion03 end
 
 
+
+-- TEMPERATURA
+
+
 function get_med_cpu_mostrar_temp( ) return mostrar_temp_cpu end
 
 
 function get_med_cpu_temp_dev( ) return med_cpu_temp_dev end
+
+
+
+-- HORAS LABORALES
+
+function get_hora_laboral_inicio( ) return hora_laboral_inicio end
+
+function get_minuto_laboral_inicio( ) return minuto_laboral_inicio end
+
+function get_hora_laboral_fin( ) return hora_laboral_fin end
+
+function get_minuto_laboral_fin( ) return minuto_laboral_fin end
 
 
 
@@ -211,6 +232,10 @@ function get_acc_pie_margen_superior( ) return acc_pie_margen_superior end
 
 -- conky-igatjens-med-bateria
 function get_med_bateria_margen_izquierdo( ) return med_bateria_margen_izquierdo end
+
+
+-- conky-igatjens-med-cpu-carga
+function get_med_cpu_carga_margen_izquierdo( ) return med_cpu_carga_margen_izquierdo end
 
 
 -- conky-igatjens-med-cpu

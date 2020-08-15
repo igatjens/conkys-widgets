@@ -23,8 +23,8 @@
 		-- consulte su ancho de banda en www.speedtest.net
 		-- check your bandwidth at www.speedtest.net
 
-		local ancho_banda_descarga	= 6			-- en Mbps -- in Mbps
-		local ancho_banda_subida	= 2			-- en Mbps -- in Mbps
+		local ancho_banda_descarga	= 10			-- en Mbps -- in Mbps
+		local ancho_banda_subida	= 3			-- en Mbps -- in Mbps
 
 -- DISPOSITIVOS DE RED -- NETWORK DEVICES --
 
@@ -47,7 +47,16 @@
 		-- it requires installing and configuring sensors - it does not work in most cases
 		
 		local mostrar_temp_cpu = false
-		local med_cpu_temp_dev = 2			-- valores entre 1 y 5 - values between 1 and 5
+		local med_cpu_temp_dev = 1			-- valores entre 1 y 5 - values between 1 and 5
+
+
+-- CONFIGURACION DE HORAS LABORALES -- CONFIGURATION OF WORK HOURS --
+		
+		local hora_laboral_inicio 	= 08		-- valores entre 0 y 23 - values between 00 and 23
+		local minuto_laboral_inicio	= 00		-- valores entre 0 y 59 - values between 00 and 59
+
+		local hora_laboral_fin 		= 17	-- valores entre 0 y 59 - values between 00 and 59
+		local minuto_laboral_fin 	= 00		-- valores entre 0 y 59 - values between 00 and 59
 
 
 
@@ -174,10 +183,26 @@ function get_med_disk_paticion02( ) return particion02 end
 function get_med_disk_paticion03( ) return particion03 end
 
 
+
+-- TEMPERATURA
+
+
 function get_med_cpu_mostrar_temp( ) return mostrar_temp_cpu end
 
 
 function get_med_cpu_temp_dev( ) return med_cpu_temp_dev end
+
+
+
+-- HORAS LABORALES
+
+function get_hora_laboral_inicio( ) return hora_laboral_inicio end
+
+function get_minuto_laboral_inicio( ) return minuto_laboral_inicio end
+
+function get_hora_laboral_fin( ) return hora_laboral_fin end
+
+function get_minuto_laboral_fin( ) return minuto_laboral_fin end
 
 
 

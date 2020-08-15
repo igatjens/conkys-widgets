@@ -58,10 +58,13 @@ end
 function conky_dibujar_grafico( )
     local ancho = conky_window.width - get_graf_margen_derecho(  ) - get_graf_cpu_margen_izquierdo( )
 
+    if ancho < 1 then return "" end
+
     if alto_grafico < 1 then
         alto_grafico = (conky_window.height - 20)
     end
 
     local codigo = "${goto "..get_graf_cpu_margen_izquierdo( ).."}${voffset 8}${cpugraph "..alto_grafico..","..ancho.." }${voffset -8}"
+    -- local codigo = 1
     return codigo
 end

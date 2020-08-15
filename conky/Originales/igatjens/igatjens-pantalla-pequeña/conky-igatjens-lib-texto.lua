@@ -17,7 +17,7 @@
 
 
 
-local letra_size_grande = 50
+local letra_size_grande = 40
 local letra_size_mediana = 30
 local letra_size_etiqueta = 18
 local letra_size_pequenna = 15

@@ -62,6 +62,8 @@ end
 function conky_dibujar_grafico( )
     local ancho = conky_window.width - get_graf_margen_derecho(  ) - get_graf_disk_write_margen_izquierdo( )
 
+    if ancho < 1 then return "" end
+
     if alto_grafico < 1 then
         alto_grafico = (conky_window.height - 20)
     end

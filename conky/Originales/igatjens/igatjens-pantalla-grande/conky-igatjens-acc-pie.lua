@@ -71,7 +71,7 @@ function mostrar_pie( cr, posicion_x_param, posicion_y_param, alto, ancho, marge
     local posicion_y = margen/2 + letra_size + posicion_y_param
     local separacion = 8 * escala
 
-    local texto = conky_parse( "WiFi: ${addr "..wifi_disp.."}  -  LAN: ${addr "..eth_disp.."}  -  UTM: ${utime %H:%M:%S}" )
+    local texto = conky_parse( "WiFi: ${addr "..wifi_disp.."}  -  LAN: ${addr "..eth_disp.."}  -  UTC: ${utime %H:%M:%S}" )
     mostrar_texto(cr, posicion_x, posicion_y, letra_size, texto, "centro" )
 
     local updates = tonumber(conky_parse("$updates"))

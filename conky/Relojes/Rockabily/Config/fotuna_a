@@ -15,15 +15,15 @@ own_window_transparent yes
 # may vary. Comment/uncomment to suit.
 ##############################################
 ## no compositor
-#own_window_type override
-#own_window_argb_visual no
+#own_window_type dock
+#own_window_argb_visual yes
 
 ## xcompmgr
-#own_window_type override
+#own_window_type dock
 #own_window_argb_visual yes
 
 ## cairo-compmgr
-own_window_type desktop
+own_window_type dock
 own_window_argb_visual yes
 ##############################################
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
@@ -38,7 +38,6 @@ border_width 1
 default_color 000000
 default_shade_color 000000
 default_outline_color 000000
-alignment top_right
 minimum_size 600 600
 maximum_width 600
 gap_x -45

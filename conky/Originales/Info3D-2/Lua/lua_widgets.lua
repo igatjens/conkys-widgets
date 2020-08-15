@@ -221,7 +221,7 @@ end
 function draw_function(cr)
 	local w,h=conky_window.width,conky_window.height
 	cairo_set_line_cap(cr, CAIRO_LINE_CAP_ROUND)
-	cairo_select_font_face (cr, "Dejavu Sans Condensed", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
+	cairo_select_font_face (cr, "LCD", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
 
 -- Calendar ----------------------------------------------------------------------------------------------------------
 	str=conky_parse("Calendar")
@@ -240,45 +240,45 @@ function draw_function(cr)
 	current_date = conky_parse("${execi 60 date +%d}");
 	current_date = tonumber(current_date);
 
-	if "jan" == conky_parse("${execi 60 date '+%b'}") then
+	if "01" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Jan'}");
 		construct_date_table (cr,first_day_on_week, 31, current_date,x_start, y_start);
-	elseif "feb" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "02" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Feb'}");
 		construct_date_table (cr,first_day_on_week, 28, current_date, x_start, y_start);
-	elseif "mar" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "03" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Mar'}");
 		construct_date_table (cr,first_day_on_week, 31, current_date,x_start, y_start);
-	elseif "apr" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "04" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Apr'}");
 		construct_date_table (cr,first_day_on_week, 30, current_date,x_start, y_start);
-	elseif "may" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "05" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 May'}");
 		construct_date_table (cr,first_day_on_week, 31, current_date,x_start, y_start);
-	elseif "jun" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "06" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Jun'}");
 		construct_date_table (cr,first_day_on_week, 30, current_date,x_start, y_start);
-	elseif "jul" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "07" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Jul'}");
 		construct_date_table (cr,first_day_on_week, 31, current_date,x_start, y_start);
-	elseif "aug" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "08" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Aug'}");
 		construct_date_table (cr,first_day_on_week, 31, current_date,x_start, y_start);
-	elseif "sep" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "09" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Sep'}");
 		construct_date_table (cr,first_day_on_week, 30, current_date,x_start, y_start);
-	elseif "oct" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "10" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Oct'}");
 		construct_date_table (cr,first_day_on_week, 31, current_date,x_start, y_start);
-	elseif "nov" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "11" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Now'}");
 		construct_date_table (cr,first_day_on_week, 30, current_date,x_start, y_start);
-	elseif "dec" == conky_parse("${execi 60 date '+%b'}") then
+	elseif "12" == conky_parse("${execi 60 date '+%m'}") then
 		first_day_on_week = conky_parse("${execi 60 date +%u -d '1 Dec'}");
 		construct_date_table (cr,first_day_on_week, 31, current_date,x_start, y_start);
 	end
 
-	cairo_select_font_face (cr, "Dejavu Sans Condensed", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
+	cairo_select_font_face (cr, "LCD", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
 
 -- Battery ----------------------------------------------------------------------------------------------------------
 

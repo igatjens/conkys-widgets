@@ -28,13 +28,12 @@ minimum_size 300 900
 maximum_width 350
 
 own_window yes
-own_window_type desktop
+own_window_type dock
 own_window_transparent yes
-own_window_argb_visual yes
 own_window_argb_visual yes
 own_window_colour 000000
 own_window_argb_value 0
-own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 border_inner_margin 0
 border_outer_margin 0
@@ -69,9 +68,8 @@ lua_draw_hook_post main
 
 ## System information using conky capabilities
 
-# Header with base system info
-own_window_argb_value 0
-own_window_colour 000000
+
+
 TEXT
 ${font Ubuntu:size=10,weight:bold}${color4}SYSTEM ${hr 2}
 ${offset 15}${font Ubuntu:size=10,weight:normal}${color1}$sysname $kernel
