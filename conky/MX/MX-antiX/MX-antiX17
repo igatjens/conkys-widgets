@@ -165,7 +165,7 @@ end
 -- stuff after 'TEXT' will be formatted on screen
 
 conky.text = [[
-${color3}${alignc}MX Linux
+${color3}${alignc}${execi 3600 lsb_release -ds}
 ${color8}$alignc${font DejaVu Sans:size=12}${template0 %H:%M}$font
 ${color}${alignc}${time %a %d %b}
 ${color}${alignc}Uptime: $uptime

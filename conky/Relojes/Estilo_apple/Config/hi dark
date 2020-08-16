@@ -38,11 +38,11 @@ border_width 1
 default_color 3C3D3D
 default_shade_color 000000
 default_outline_color 000000
-minimum_size 600 600
+minimum_size 0 600
 maximum_width 600
-gap_x 500
+gap_x 0
 gap_y 85
-alignment top_right
+alignment top_middle
 no_buffers yes
 uppercase no
 cpu_avg_samples 2

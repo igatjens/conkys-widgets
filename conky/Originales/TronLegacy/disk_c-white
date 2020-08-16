@@ -1,0 +1,51 @@
+# conky configrued by Qaisar Nawaz
+# for more like visit : myconkys.blogspot.com
+# Conky settings #
+background no
+update_interval 1
+double_buffer yes
+no_buffers yes
+
+# Window specifications #
+own_window yes
+own_window_type dock
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_title 
+own_window_colour 000000
+own_window_transparent yes
+own_window_argb_visual yes
+#own_window_argb_value 255
+
+minimum_size 260 100
+# Alignment #
+alignment top_right
+gap_x 30
+gap_y 260
+
+border_inner_margin 0
+border_outer_margin 0
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftalpha 1
+xftfont future:size=20
+
+
+# Color scheme #
+default_color ffffff
+color1 ffffff
+
+own_window_argb_value 255
+TEXT
+#${image ./conky_icons/circle3.png -s 200x100}${voffset 10}
+${offset 10}Disk Space
+
+${offset 10}HOME ${goto 110}${color1}${fs_bar 8 /home}
+
+${offset 10}${color}SYSTEM ${goto 110}${color1}${fs_bar 8 /}

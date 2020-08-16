@@ -183,8 +183,8 @@ function conky_clock_rings()
         local arg=pt['arg']
         
         if  pt['name'] == 'upspeedf' or pt['name'] == 'downspeedf' then
-			if     tonumber(conky_parse('${if_up   eth0}1${else}0${endif}')) == 1 then arg='eth0' 
-			elseif tonumber(conky_parse('${if_up   eth1}1${else}0${endif}')) == 1 then arg='eth1'
+			if     tonumber(conky_parse('${if_up   enp1s0}1${else}0${endif}')) == 1 then arg='enp1s0' 
+			elseif tonumber(conky_parse('${if_up   enp2s0}1${else}0${endif}')) == 1 then arg='enp2s0'
 			elseif tonumber(conky_parse('${if_up  wlan0}1${else}0${endif}')) == 1 then arg='wlan0'
 			else   arg='wlan1'
 			end

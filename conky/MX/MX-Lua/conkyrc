@@ -41,7 +41,7 @@ conky.config = {
 
 -- Text settings #
 	use_xft = true,
-	font = 'Roboto:size=8',
+	font = 'Open Sans:size=8',
 	xftalpha = 0.5,
 
 	uppercase = false,
@@ -57,7 +57,7 @@ conky.config = {
 	lua_load = './clock_rings.lua',
 	lua_draw_hook_pre = 'clock_rings',
 
-	own_window_argb_value = 0,
+	own_window_argb_value = 255,
 	own_window_argb_visual = true,
 	own_window_colour = '000000',
 
@@ -66,8 +66,8 @@ conky.config = {
    if_up_strictness = 'address',
 
 -- network templates
-	template0 = 'eth0',
-	template1 = 'eth1',
+	template0 = 'enp1s0',
+	template1 = 'enp2s0',
 	template2 = 'wlan0',
 	template3 = 'wlan1',
 
@@ -85,43 +85,43 @@ end
 conky.text = [[
 
 
-${voffset -38}${color1}${font Roboto:size=16}${time %A}${font}${voffset -6}${alignr 30}${color0}${font Roboto:size=38}${time %e}${font}
-${color0}${voffset -30}${color0}${font Roboto:size=18}${time %b}${font}${voffset -3}  ${color0}${font Roboto:size=20}${time %Y}${font}${color1}
+${voffset -50}${color1}${font Open Sans:size=16}${time %A}${font}${voffset -10}${alignr 30}${color0}${font Open Sans:size=38}${time %e}${font}
+${color0}${voffset -28}${color0}${font Open Sans:size=18}${time %b}${font}${voffset -3}  ${color0}${font Open Sans:size=20}${time %Y}${font}${color1}
 ${voffset 160}${hr}
 ${image ./MX_logo.png -p 120,255 -s 75x75}
 ${voffset 0}
-${color0}${goto 48}${voffset 18}${cpu cpu0}%
-${color1}${goto 38}CPU
-${color0}${goto 67}${voffset 23}${memperc}%
-${color1}${goto 62}RAM
-${color0}${goto 95}${voffset 23}${swapperc}%
-${color1}${goto 85}SWAP
-${color0}${goto 115}${voffset 23}${fs_used_perc /}%
-${color1}${goto 115}Disk
+${color0}${goto 26}${voffset 12}${cpu cpu0}%
+${color1}${goto 26}CPU
+${color0}${goto 48}${voffset 18}${memperc}%
+${color1}${goto 48}RAM
+${color0}${goto 66}${voffset 18}${swapperc}%
+${color1}${goto 66}SWAP
+${color0}${goto 100}${voffset 18}${fs_used_perc /}%
+${color1}${goto 100}Disk
 ${if_up $template0}\
-${color0}${goto 145}${voffset 28}${downspeed $template0}
-${color0}${goto 145}${upspeed $template0}
-${color1}${goto 125}Net\
+${color0}${goto 120}${voffset 18}${downspeed $template0}
+${color0}${goto 120}${upspeed $template0}
+${color1}${goto 120}Net\
 ${else}${if_up $template1}\
-${color0}${goto 145}${voffset 28}${downspeed $template1}
-${color0}${goto 145}${upspeed $template1}
-${color1}${goto 125}Net\
+${color0}${goto 120}${voffset 18}${downspeed $template1}
+${color0}${goto 120}${upspeed $template1}
+${color1}${goto 120}Net\
 ${else}${if_up $template2}\
-${color0}${goto 135}${voffset 28}${downspeed $template2}
-${color0}${goto 135}${upspeed $template2}
-${color1}${goto 125}Net\
+${color0}${goto 120}${voffset 18}${downspeed $template2}
+${color0}${goto 120}${upspeed $template2}
+${color1}${goto 120}Net\
 ${else}\
-${color0}${goto 145}${voffset 28}${downspeed $template3}
-${color0}${goto 145}${upspeed $template3}
-${color1}${goto 125}Net\
+${color0}${goto 120}${voffset 18}${downspeed $template3}
+${color0}${goto 120}${upspeed $template3}
+${color1}${goto 120}Net\
 ${endif}${endif}${endif}
 
 ${hr}
 
-${color2}${font Roboto:size=9}Uptime: ${uptime_short}
-${color2}${font Roboto:size=9}Processes: ${processes}
-${color2}${font Roboto:size=9}Running: ${running_processes}
-${color2}${font Roboto:size=9}${alignr}${nodename}
-${color2}${font Roboto:size=9}${alignr}${execi 86400 cat /etc/mx-version}  
-${color2}${font Roboto:size=9}${alignr}Kernel: ${kernel}
+${color2}${font Open Sans:size=9}Uptime: ${uptime_short}
+${color2}${font Open Sans:size=9}Processes: ${processes}
+${color2}${font Open Sans:size=9}Running: ${running_processes}
+${color2}${font Open Sans:size=9}${alignr}${nodename}
+${color2}${font Open Sans:size=9}${alignr}${execi 86400 cat /etc/mx-version}  
+${color2}${font Open Sans:size=9}${alignr}Kernel: ${kernel}
 ]];

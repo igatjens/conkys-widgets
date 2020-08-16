@@ -9,7 +9,7 @@ conky.config = {
     own_window_type = 'dock',
 	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
 	own_window_argb_visual = true,
-	own_window_argb_value = 140,
+	own_window_argb_value = 255,
 	out_to_console = false,
 	use_xft = true,
 	font = 'cure:size=10',

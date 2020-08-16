@@ -40,13 +40,13 @@ settings_table = {
         name='time',
         arg='%d',
         max=31,
-        bg_colour=0xcccccc,
+        bg_colour=0xffffff,
         bg_alpha=1.0,
-        fg_colour=0x00ff00,
+        fg_colour=0xffffff,
         fg_alpha=1.0,
         x=200, y=200,
-        radius=120,
-        thickness=25,
+        radius=95,
+        thickness=1,
         start_angle=0,
         end_angle=360
     },
@@ -54,7 +54,7 @@ settings_table = {
 
 -- Use these settings to define the origin and extent of your clock.
 
-clock_r=65
+clock_r=60
 
 -- "clock_x" and "clock_y" are the coordinates of the centre of the clock, in pixels, from the top left of the Conky window.
 
@@ -90,9 +90,9 @@ function draw_ring(cr,t,pt)
     
     -- Draw indicator ring
 
-    -- cairo_arc(cr,xc,yc,ring_r,angle_0,angle_0+t_arc)
-    -- cairo_set_source_rgba(cr,rgb_to_r_g_b(fgc,fga))
-    -- cairo_stroke(cr)        
+    cairo_arc(cr,xc,yc,ring_r,angle_0,angle_0+t_arc)
+    cairo_set_source_rgba(cr,rgb_to_r_g_b(fgc,fga))
+    cairo_stroke(cr)        
 end
 
 function draw_clock_hands(cr,xc,yc)
@@ -115,8 +115,8 @@ function draw_clock_hands(cr,xc,yc)
     cairo_line_to(cr,xh,yh)
     
     cairo_set_line_cap(cr,CAIRO_LINE_CAP_ROUND)
-    cairo_set_line_width(cr,18)
-    cairo_set_source_rgba(cr,0.8,0.8,0.8,1.0)
+    cairo_set_line_width(cr,3)
+    cairo_set_source_rgba(cr,1,1,1,1.0)
     cairo_stroke(cr)
     
     -- Draw minute hand
@@ -126,7 +126,7 @@ function draw_clock_hands(cr,xc,yc)
     cairo_move_to(cr,xc,yc)
     cairo_line_to(cr,xm,ym)
     
-    cairo_set_line_width(cr,16)
+    cairo_set_line_width(cr,3)
     cairo_stroke(cr)
     
     -- Draw seconds hand
@@ -137,7 +137,7 @@ function draw_clock_hands(cr,xc,yc)
         cairo_move_to(cr,xc,yc)
         cairo_line_to(cr,xs,ys)
     
-        cairo_set_line_width(cr,14)
+        cairo_set_line_width(cr,1)
         cairo_stroke(cr)
     end
 end

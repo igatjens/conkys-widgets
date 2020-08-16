@@ -46,7 +46,7 @@ conky.config = {
 	color6 = '000000',
 	color7 = 'DDDDDD',
 
-	own_window_argb_value = 0,
+	own_window_argb_value = 255,
 	own_window_argb_visual = true,
 };
 

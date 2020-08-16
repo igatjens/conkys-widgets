@@ -60,7 +60,7 @@ conky.config = {
     lua_load = './clock01_rings.lua',
     lua_draw_hook_pre = 'clock_rings',
 
-    own_window_argb_value = 0,
+    own_window_argb_value = 255,
     own_window_argb_visual = true,
     own_window_colour = '000000',
 

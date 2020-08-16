@@ -3,28 +3,28 @@
 # Author	: F Hamzah <fahrud26@gmail.com>
 # License	: Distributed under the terms of GNU GPL version 2 or later
 
-	alignment 
+alignment top_right
 	background  no
 	border_inner_margin  15
 	border_width  5
-	default_color  ffffff  --ffffff # grey 5f5f5f 3F3F3F 183149 3B3B3B 26211F
+	default_color  ffffff  #ffffff # grey 5f5f5f 3F3F3F 183149 3B3B3B 26211F
 	double_buffer  yes
 	draw_borders  no
 	draw_graph_borders  no
 	draw_outline  no
 	draw_shades  no
-	gap_x 
-	gap_y 
+gap_x 10
+gap_y 10
 	maximum_width  320
 	double_buffer  yes
 	override_utf8_locale  yes
     own_window  yes
     own_window_class  desktop
     own_window_type dock
-	own_window_transparent yes
+own_window_transparent yes
 	own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-	own_window_argb_visual yes
-	own_window_argb_value 
+own_window_argb_visual yes
+own_window_argb_value 0
 	text_buffer_size  8000
 	total_run_times  0
 	update_interval  1
@@ -38,6 +38,8 @@
 	color3  6C5438
 
 
+own_window_colour 000000
+minimum_size 0 0
 TEXT
 ${font Raleway:pixelsize=150}${alignr}${color1}${time %H}
 ${voffset -35}${alignr}${color2}${time %M}

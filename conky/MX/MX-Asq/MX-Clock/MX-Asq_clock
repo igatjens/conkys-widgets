@@ -40,7 +40,7 @@ conky.config = {
 --  Output
 --#############################################
 
-	own_window_argb_value = 0,
+	own_window_argb_value = 255,
 	own_window_colour = '000000',
 
 -- time template
