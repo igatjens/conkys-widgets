@@ -88,7 +88,7 @@ conky.text = [[
 ${voffset -50}${color1}${font Open Sans:size=16}${time %A}${font}${voffset -10}${alignr 30}${color0}${font Open Sans:size=38}${time %e}${font}
 ${color0}${voffset -28}${color0}${font Open Sans:size=18}${time %b}${font}${voffset -3}  ${color0}${font Open Sans:size=20}${time %Y}${font}${color1}
 ${voffset 160}${hr}
-${image ./MX_logo.png -p 120,255 -s 75x75}
+${image ./deepin.png -p 145,255 -s 50x50}
 ${voffset 0}
 ${color0}${goto 26}${voffset 12}${cpu cpu0}%
 ${color1}${goto 26}CPU
@@ -122,6 +122,6 @@ ${color2}${font Open Sans:size=9}Uptime: ${uptime_short}
 ${color2}${font Open Sans:size=9}Processes: ${processes}
 ${color2}${font Open Sans:size=9}Running: ${running_processes}
 ${color2}${font Open Sans:size=9}${alignr}${nodename}
-${color2}${font Open Sans:size=9}${alignr}${execi 86400 cat /etc/mx-version}  
+${color2}${font Open Sans:size=9}${alignr}${execi 86400 CKW_DVER1=$(lsb_release -ds); CKW_DVER2=$(echo $(grep -E "Version=|Type=|Edition=|Buildid=" /etc/deepin-version | cut -d = -f 2) | awk '{print $3,$4}'); echo $CKW_DVER1 $CKW_DVER2}  
 ${color2}${font Open Sans:size=9}${alignr}Kernel: ${kernel}
 ]];

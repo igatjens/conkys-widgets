@@ -82,7 +82,7 @@ end
 
 conky.text = [[
 
-${image ./sardiStart-shadow.png -p 1,0 -s 50x50}${voffset 8}${offset 58}$font${font Roboto-Light:bold:size=11}${color 4F91FB}${execi 1000 cat /etc/mx-version}
+${image ./deepin.png -p 1,0 -s 50x50}${voffset 8}${offset 58}$font${font Roboto-Light:bold:size=11}${color 4F91FB}${execi 3600 CKW_DVER1=$(lsb_release -ds); CKW_DVER2=$(echo $(grep -E "Version=|Type=|Edition=|Buildid=" /etc/deepin-version | cut -d = -f 2) | awk '{print $3,$4}'); echo $CKW_DVER1 $CKW_DVER2}
 
 ${font Roboto-Light:bold:size=10}${color white}SYSTEM ${color2} ${hr 2}
 $font${color DimGray}$sysname $kernel $alignr $machine

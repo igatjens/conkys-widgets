@@ -5,7 +5,7 @@ conky.config = {
 -- Use Xft?
 	use_xft = true,
 	font = 'Droid Sans:size=7',
-	xftalpha = 0.8,
+	xftalpha = 1,
 	text_buffer_size = 2048,
 
 -- Update interval in seconds
@@ -101,7 +101,7 @@ conky.config = {
 --#############################################
 	own_window_argb_value = 255,
 	own_window_argb_visual = true,
-	minimum_width = 0, minimum_height = 0,
+	minimum_width = 190, minimum_height = 190,
 
 -- time template
     
@@ -130,11 +130,11 @@ conky.text = [[
 
 ${color2}SYSTEM ${hr 2}${color}
 
-   ${image MXLogoStart.png -p 97,90 -s 50x50}
-   
-  
+${image deepin.png -p 70,105 -s 50x50}
 
- ${alignc}${color1}${execi 3600 cat /etc/mx-version}
+
+
+   ${alignc}${color1}${execi 3600 CKW_DVER1=$(lsb_release -ds); CKW_DVER2=$(echo $(grep -E "Version=|Type=|Edition=|Buildid=" /etc/deepin-version | cut -d = -f 2) | awk '{print $2,$3,$4}'); echo $CKW_DVER1 $CKW_DVER2}
 
 ${voffset 2}${color3}   Kernel: ${alignr}${color}${kernel}
 

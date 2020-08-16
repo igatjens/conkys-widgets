@@ -57,7 +57,7 @@ conky.config = {
 	default_outline_color = 'AD7B7B',
 -- own window options
 	own_window = true,
-	own_window_transparent = false,
+	own_window_transparent = true,
 	own_window_type = 'dock',
 	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
 
@@ -92,7 +92,7 @@ conky.config = {
 -- Add spaces to keep things from moving about?  This only affects certain objects.
 	use_spacer = 'none',
 
-	own_window_argb_value = 0,
+	own_window_argb_value = 255,
 	own_window_argb_visual = true,
 	own_window_colour = '000000',
 
@@ -118,7 +118,7 @@ end
 
 conky.text = [[
 ${font clean:size=12}${color1}\
-${offset 170}CPU ${cpubar 5,75}\
+${offset 280}CPU ${cpubar 5,75}\
 ${offset  85}HDD ${fs_bar 3,75}${offset 85}MEM ${membar 5,75}\
 ${template0}\
 ${offset  85}SWP ${swapbar 5,75}

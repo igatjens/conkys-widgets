@@ -90,19 +90,19 @@ if math.floor(os.execute("pgrep -x fluxbox>/dev/null")/256) == 0 then
 end
 
 conky.text = [[
-${font Neuropolitical:size=42}${time %e}
-${goto 92}${font Neuropolitical:size=18}${color1}${voffset -75}${time %b}
-${font Neuropolitical:size=10}${color1}${voffset 15}${time %A}${color1}${hr}
-${goto 92}${font Neuropolitical:size=15}${color0}${voffset -35}${time %Y}
+${font Neuropolitical:size=42}${offset 20}${time %e}
+${goto 110}${font Neuropolitical:size=18}${color1}${voffset -60}${time %b}
+${font Neuropolitical:size=10}${color1}${voffset 20}${time %A}${color1}${hr}
+${goto 110}${font Neuropolitical:size=15}${color0}${voffset -35}${time %Y}
 ${font Neuropolitical:size=30}${voffset 40}${alignc}${if_match "pmfix${time %p}" == "pmfix"}${time $template7}${else}${time %I:%M}${endif}
 ${goto 175}${voffset -30}${font Neuropolitical:size=10}${time %S}
 ${color1}${hr}
-#${image ./logo.png -p 150,10 -s 30x30}
+${image ./deepin.png -p 160,10 -s 30x30}
 ${color0}${font Neuropolitical:size=10}${voffset 4}Uptime: ${uptime_short}
 ${color0}${font Neuropolitical:size=10}Processes: ${processes}
 ${color0}${font Neuropolitical:size=10}Running: ${running_processes}
 
-${color1}${goto 92}${voffset 51}CPU
+${color1}${goto 92}${voffset 24}CPU
 ${color0}${goto 92}${cpu cpu0}%
 ${color1}${goto 92}${voffset 56}RAM
 ${color0}${goto 92}${memperc}%

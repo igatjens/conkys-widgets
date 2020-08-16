@@ -11,7 +11,7 @@ conky.config = {
 
 	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
 	double_buffer = true,
-	minimum_width = 700, minimum_height = 150,
+	minimum_width = 0, minimum_height = 150,
 	maximum_width = 640,
 	draw_shades = false,
 	draw_outline = false,
@@ -28,10 +28,10 @@ conky.config = {
 	cpu_avg_samples = 2,
 	override_utf8_locale = true,
 
-	default_color = 'edf1f6',
-	color1 = '2da83b',
-	color2 = '2da73b',
-	color3 = 'db303e',
+	default_color = 'ffffff',
+	color1 = 'ffffff',
+	color2 = 'ffffff',
+	color3 = 'ffffff',
 
 	own_window_argb_value = 0,
 	own_window_colour = '000000',
@@ -55,13 +55,13 @@ conky.text = [[
 #time
 ${alignc}${color}${font Quicksand - U:pixelsize=70}\
 ${if_match "pmfix${time %p}" == "pmfix"}${time ${template0}}${else}${time %I:%M}${endif}\
-${font}${font}${voffset -45}${offset 10}${font Roboto-Light - U:pixelsize=35}${time %P}${font}
+${font}${font}${voffset -45}${offset 10}${font Liberation sans Narrow-Regular:pixelsize=35}${time %P}${font}
 
 
 
 #date & time
-${voffset 5}${alignc}${color2}${font Droid:pixelsize=30}${time %A   %x}${font}
+${alignc}${alignc}${color2}${font Open Sans:pixelsize=30}${time %A   %x}${font}
 
 #sys
-${offset 130}${font Roboto-Light:pixelsize=20}${offset 9}${offset 9}${color1}hdd ${color}${offset 9}$color${fs_used_perc /}%${offset 9}${color1}mem ${offset 9}${color}${memperc}%${offset 9}${offset 9}${color1}cpu${offset 9}${color}${cpu}%${font}
+${alignc}${font Liberation sans Narrow-Regular:pixelsize=20}${color1}cpu  ${color}${cpu}%       ${color1}mem  ${color}${memperc}%       ${color1}hdd  ${color}$color${fs_used_perc /}%${font}
 ]];

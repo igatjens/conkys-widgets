@@ -1,7 +1,7 @@
 conky.config = {
 	use_xft = true,
 	font = '123:size=8',
-	xftalpha = 0.1,
+	xftalpha = 1,
 	update_interval = 3,
 	total_run_times = 0,
 	own_window = true,
@@ -15,7 +15,7 @@ conky.config = {
 	draw_outline = false,
 	draw_borders = false,
 	draw_graph_borders = false,
-	default_shade_color = 'black',
+	default_shade_color = '555555',
 	default_outline_color = 'green',
 	alignment = 'top_middle',
 	gap_x = 35,
@@ -31,7 +31,7 @@ conky.config = {
 	color1 = 'FCD97B',
 	color2 = 'dddddd',
 
-	own_window_argb_value = 0,
+	own_window_argb_value = 255,
 	own_window_argb_visual = true,
 	own_window_colour = '000000',
 };
@@ -49,9 +49,9 @@ ${if_match "pmfix${time %p}" == "pmfix"}${time %\
 H:%M}${else}${time %I:%M}${endif}\
 ${if_match "${time %\
 H}" != "${time %I}"}${time %P}${endif}\
-${font}${voffset -84}${offset 10}${color1}${font Ubuntu:pixelsize=42}${time %d}${voffset -14}${color2}${font Ubuntu:pixelsize=22} ${time  %B} ${time %Y}${font}${voffset 24}${font Amaze:pixelsize=45}${offset -125}${time %a}${font}
-${voffset 15}\
-${offset 15}${font Ubuntu:pixelsize=12}${color1}HDD free ${offset 5}$color${fs_free /home} / ${fs_size /home}${offset 15}${color1}MEM free ${offset 5}$color$mem / $memmax${offset 15}${color1}CPU ${offset 5}$color${cpu cpu0}%
+${font}${voffset -84}${offset 30}${color1}${font Open Sans:pixelsize=42}${time %d}${voffset -14}${color2}${font Open Sans:pixelsize=22} ${time  %B} ${time %Y}${font}${voffset 18}${font Noto Sans:pixelsize=55}${offset -160}${time %a}${font}
+${voffset 11}\
+${offset 15}${font Open Sans:pixelsize=12}${color1}HDD free ${offset 5}$color${fs_free /home} / ${fs_size /home}${offset 15}${color1}MEM free ${offset 5}$color$mem / $memmax${offset 15}${color1}CPU ${offset 5}$color${cpu cpu0}%
 
 
 

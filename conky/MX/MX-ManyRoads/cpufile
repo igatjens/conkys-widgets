@@ -20,7 +20,7 @@ conky.config = {
 --use_xft yes
 --xftfont Sansation:size=9
 	font = 'Rounded Elegance:size=10',
-	xftalpha = 0,
+	xftalpha = 1,
 	update_interval = 2,
 	cpu_avg_samples = 2,
 	net_avg_samples = 2,

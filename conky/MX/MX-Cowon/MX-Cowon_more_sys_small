@@ -76,5 +76,5 @@ ${color2}${offset 40}${voffset -100}${time %M}
 ${voffset -140}${offset 10}${font Dinreg:bold:size=12}${color1}${time %A} ${offset 10}${color1}${time %B %d}
 ${offset 150}${voffset -175}${font Dinreg:size=12}${color2}${lua AM_PM}
 #system
-${offset 0}${voffset 160}${font Dinreg:bold:pixelsize=12}${offset 14}${color3}hdd ${offset 4}${color4}${fs_used_perc /}%${offset 4}${color3} mem ${offset 4}${color4}${memperc}%${offset 4} ${color3}cpu ${offset 4}${color4}${cpu cpu0}%
+${offset 0}${voffset 160}${font Dinreg:bold:pixelsize=12}${offset 14}${color3}hdd ${offset 4}${color0}${fs_used_perc /}%${offset 4}${color3} mem ${offset 4}${color0}${memperc}%${offset 4} ${color3}cpu ${offset 4}${color0}${cpu cpu0}%
 ]];

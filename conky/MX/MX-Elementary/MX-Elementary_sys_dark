@@ -1,0 +1,67 @@
+conky.config = {
+	background = true,
+	use_xft = true,
+	font = 'Liberation Sans:size=9',
+	xftalpha = 1,
+	update_interval = 1.0,
+	total_run_times = 0,
+	own_window = true,
+	own_window_transparent = true,
+	own_window_type = 'dock',
+
+	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
+	double_buffer = true,
+	minimum_width = 0, minimum_height = 150,
+	maximum_width = 640,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+
+	default_shade_color = '000000',
+	default_outline_color = '828282',
+	alignment = 'top_middle',
+	gap_x = 20,
+	gap_y = 50,
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+
+	default_color = '444444',
+	color1 = '444444',
+	color2 = '444444',
+	color3 = '444444',
+
+	own_window_argb_value = 0,
+	own_window_colour = '000000',
+
+
+	own_window_argb_visual = true,
+
+-- time template
+   template0 = '%H:%M',
+
+};
+
+-- fluxbox adjustment
+
+if math.floor(os.execute("pgrep -x fluxbox>/dev/null")/256) == 0 then
+   conky.config.own_window_transparent = true
+   conky.config.own_window_argb_visual = false
+end
+
+conky.text = [[
+#time
+${alignc}${color}${font Quicksand - U:pixelsize=70}\
+${if_match "pmfix${time %p}" == "pmfix"}${time ${template0}}${else}${time %I:%M}${endif}\
+${font}${font}${voffset -45}${offset 10}${font Liberation sans Narrow-Regular:pixelsize=35}${time %P}${font}
+
+
+
+#date & time
+${alignc}${alignc}${color2}${font Open Sans:pixelsize=30}${time %A   %x}${font}
+
+#sys
+${alignc}${font Liberation sans Narrow-Regular:pixelsize=20}${color1}cpu  ${color}${cpu}%       ${color1}mem  ${color}${memperc}%       ${color1}hdd  ${color}$color${fs_used_perc /}%${font}
+]];
