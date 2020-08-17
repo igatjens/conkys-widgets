@@ -68,23 +68,21 @@ ${voffset 10}${alignc 20}${time %A}${offset 10}${time %d}${offset 10}${time %B}$
 ##SYS##
 ${goto 50}${voffset 16}${font StyleBats:size=13}A${font}   ${voffset -3}CPU: ${alignr 50}${cpu cpu0}% 
 ${goto 50}${voffset 10}${font StyleBats:size=13}g${font}   ${voffset -3}RAM: ${alignr 50}$memperc% 
-
-${goto 50}${voffset -5}${font Pie charts for maps:size=12}7${font}   ${voffset -5}Root: ${alignr 53}${fs_used_perc /}%
-
+${goto 50}${voffset 10}${font Pie charts for maps:size=12}7${font}   ${voffset -3}Root: ${alignr 53}${fs_used_perc /}%
+${goto 50}${voffset 10}${font Pie charts for maps:size=12}7${font}   ${voffset -3}Root: ${alignr 53}${fs_used_perc /home}%
 ##NET##
 ${if_up $template0}\
-${goto 50}${voffset -5}${font PizzaDude Bullets:size=12}N${font}   Upload:  ${goto 130}${totalup $template0}
+${goto 50}${voffset 10}${font PizzaDude Bullets:size=12}N${font}   Upload:  ${goto 130}${totalup $template0}
 ${goto 50}${voffset  8}${font PizzaDude Bullets:size=12}T${font}   Download:  ${goto 130}${totaldown $template0}\
 ${else}${if_up $template1}\
-${goto 50}${voffset -5}${font PizzaDude Bullets:size=12}N${font}   Upload:  ${goto 130}${totalup $template1}
+${goto 50}${voffset 10}${font PizzaDude Bullets:size=12}N${font}   Upload:  ${goto 130}${totalup $template1}
 ${goto 50}${voffset  8}${font PizzaDude Bullets:size=12}T${font}   Download:  ${goto 130}${totaldown $template1}\
 ${else}${if_up $template2}\
-${goto 50}${voffset -5}${font PizzaDude Bullets:size=12}N${font}   Upload:  ${goto 130}${totalup $template2}
+${goto 50}${voffset 10}${font PizzaDude Bullets:size=12}N${font}   Upload:  ${goto 130}${totalup $template2}
 ${goto 50}${voffset  8}${font PizzaDude Bullets:size=12}T${font}   Download:  ${goto 130}${totaldown $template2}\
 ${else}\
-${goto 50}${voffset -5}${font PizzaDude Bullets:size=12}N${font}   Upload:  ${goto 130}${totalup $template3}
+${goto 50}${voffset 10}${font PizzaDude Bullets:size=12}N${font}   Upload:  ${goto 130}${totalup $template3}
 ${goto 50}${voffset  8}${font PizzaDude Bullets:size=12}T${font}   Download:  ${goto 130}${totaldown $template3}\
 ${endif}${endif}${endif}
-
 #${image ./Conky/base.png -p 0,0 -s 203x524}
 ]];

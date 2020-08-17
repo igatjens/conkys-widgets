@@ -7,7 +7,7 @@ conky.config = {
 	alignment = 'top_middle',
 	gap_x = 0,
 --575
-	gap_y = 0,
+	gap_y = 140,
 --310
 	use_xft = true,
 	font = 'Source Sans Pro:size=18',

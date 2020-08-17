@@ -11,10 +11,10 @@ conky.config = {
 	no_buffers = true,
 	text_buffer_size = 2048,
 	alignment = 'top_right',
-	gap_x = 50,
+	gap_x = 20,
 	gap_y = 50,
-	minimum_width = 310, minimum_height = 260,
-	maximum_width = 370,
+	minimum_width = 0, minimum_height = 260,
+	maximum_width = 0,
 	own_window = true,
 	own_window_type = 'dock',
 	own_window_transparent = true,
@@ -56,9 +56,9 @@ if math.floor(os.execute("pgrep -x fluxbox>/dev/null")/256) == 0 then
 end
 
 conky.text = [[
-
-${goto 0}${color1}${font Feena Casual:size=80}${if_match "pmfix${time %p}" == "pmfix"}${time %\
-H}${else}${time %I}${endif}${offset 30}${font Feena Casual:size=36}${color2}${execi 60 date +%a | sed 'y/áÁàÀãÃâÂéÉêÊíÍóÓõÕôÔúÚñÑçÇ/aAaAaAaAeEeEiIoOoOoOuUnNcC/'}#$
-${color2}${goto 0}${voffset 55}${font Feena Casual:size=18}${time %d} ${font Feena Casual:size=36}${voffset -15}${time %B} ${font Feena Casual:size=16}${goto 65}${voffset 34}${time %Y}${font Feena Casual:size=80}${goto 195}${voffset -54}${color1}${time %M}${font Feena Casual:size=16}${color2} ${time %P}
-${goto 34}${voffset 8}${font pixelsize=12}${color2}${offset 0}${color3}hdd${offset 9}${color4}${fs_used_perc /}%${offset 20}${color3}mem${offset 9}${color4}${memperc}%${offset 20}${color3}cpu${offset 9}${color4}${cpu}%
+${color1}${font Feena Casual:size=80}${if_match "pmfix${time %p}" == "pmfix"}${time %H}\
+${else}${time %H}${endif} ${font Feena Casual:size=36}${color2}${execi 60 date +%A | sed 'y/áÁàÀãÃâÂéÉêÊíÍóÓõÕôÔúÚñÑçÇ/aAaAaAaAeEeEiIoOoOoOuUnNcC/'}
+${color2}${font Feena Casual:size=18}${time %d} ${font Feena Casual:size=36}${voffset -15}${time %B} ${font Feena Casual:size=16}${font Feena Casual:size=80}${voffset -21}${color1}${time %M}${font Feena Casual:size=16}${color2} ${time %P}
+${alignc}${offset -75}${voffset -35}${time %Y}
+${voffset 12}${font :size=12}${color2}${offset 0}${color3}hdd${offset 9}${color4}${fs_used_perc /}%${offset 20}${color3}mem${offset 9}${color4}${memperc}%${offset 20}${color3}cpu${offset 9}${color4}${cpu}%
 ]];

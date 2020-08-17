@@ -53,7 +53,7 @@ conky.config = {
 	use_spacer = 'none',
 	override_utf8_locale = true,
 
-	color0 = 'white',
+	color0 = '444444',
 	color1 = 'darkgreen',
 	color2 = 'darkgrey',
 	color3 = 'E82A2A',
@@ -61,7 +61,7 @@ conky.config = {
 --own_window_argb_value 0
 --own_window_colour 000000
 --own_window_colour 000000
-	own_window_argb_value = 0,
+	own_window_argb_value = 255,
 	own_window_colour = '000000',
 
 -- network templates
