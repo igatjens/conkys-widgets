@@ -19,7 +19,7 @@ for usuario in $(ls /home); do
 		#comprobar si hay carpeta de conky
 		if [ -d $carpeta_widgets_conky ]; then
 
-			#crear carpeta de respaldos si no existe
+			#carpeta de respaldos
 			carpeta_respaldos=/home/$usuario/$carpeta_respaldo_nombre
 
 			#comprobar si hay carpeta de respaldos
@@ -81,34 +81,101 @@ for usuario in $(ls /home); do
 							if [[ archivo_respaldo ]]; then
 
 								for widget in $archivo_respaldo; do
+
+									echo $widget
 									
 									archivo_widget=$(echo $widget | cut -d ";" -f 1)
 
-									alignment=$(echo $widget | cut -d ";" -f 2)
+									sintaxis=$(echo $widget | cut -d ";" -f 2)
 
-									gap_x=$(echo $widget | cut -d ";" -f 3)
-									gap_y=$(echo $widget | cut -d ";" -f 4)
+									if [[ $sintaxis = "sintaxis_nueva" ]]; then
+										echo $sintaxis
 
-									own_window_transparent=$(echo $widget | cut -d ";" -f 5)
-									own_window_colour=$(echo $widget | cut -d ";" -f 6)
-									own_window_argb_visual=$(echo $widget | cut -d ";" -f 7)
-									own_window_argb_value=$(echo $widget | cut -d ";" -f 8)
+										alignment=$(echo $widget | cut -d ";" -f 3)
 
-									minimum_size=$(echo $widget | cut -d ";" -f 9)
+										gap_x=$(echo $widget | cut -d ";" -f 4)
+										gap_y=$(echo $widget | cut -d ";" -f 5)
 
-									
-									sed -i "s/alignment .*/alignment $alignment/g" $archivo_widget
+										own_window_transparent=$(echo $widget | cut -d ";" -f 6)
+										own_window_colour=$(echo $widget | cut -d ";" -f 7)
+										own_window_argb_visual=$(echo $widget | cut -d ";" -f 8)
+										own_window_argb_value=$(echo $widget | cut -d ";" -f 9)
 
-									sed -i "s/gap_x .*/gap_x $gap_x/g" $archivo_widget
-									sed -i "s/gap_y .*/gap_y $gap_y/g" $archivo_widget
+										minimum_width=$(echo $widget | cut -d ";" -f 10)
+										minimum_height=$(echo $widget | cut -d ";" -f 11)
 
-									sed -i "s/own_window_transparent .*/own_window_transparent $own_window_transparent/g" $archivo_widget
-									sed -i "s/own_window_colour .*/own_window_colour $own_window_colour/g" $archivo_widget
-									sed -i "s/own_window_argb_visual .*/own_window_argb_visual $own_window_argb_visual/g" $archivo_widget
-									sed -i "s/own_window_argb_value .*/own_window_argb_value $own_window_argb_value/g" $archivo_widget
+										#echo $alignment
 
-									sed -i "s/minimum_size .*/minimum_size $minimum_size/g" $archivo_widget
+										sed -i "s/alignment[[:space:]]*=[[:space:]]*'[[:ascii:]]'/alignment = $alignment/" $archivo_widget
 
+										sed -i "s/gap_x[[:space:]]*=[[:space:]]*[0-9]*/gap_x = $gap_x/" $archivo_widget
+										sed -i "s/gap_y[[:space:]]*=[[:space:]]*[0-9]*/gap_y = $gap_y/" $archivo_widget
+
+										sed -i "s/own_window_transparent[[:space:]]*=[[:space:]]*[a-zA-z]*/own_window_transparent = $own_window_transparent/" $archivo_widget
+										sed -i "s/own_window_colour[[:space:]]*=[[:space:]]*'[0-9a-zA-Z]*'/own_window_colour = $own_window_colour/" $archivo_widget
+										sed -i "s/own_window_argb_visual[[:space:]]*=[[:space:]]*[a-zA-z]*/own_window_argb_visual = $own_window_argb_visual/" $archivo_widget
+										sed -i "s/own_window_argb_value[[:space:]]*=[[:space:]]*[0-9]*/own_window_argb_value = $own_window_argb_value/" $archivo_widget
+
+										sed -i "s/minimum_width[[:space:]]*=[[:space:]]*[0-9]*/minimum_width = $minimum_width/" $archivo_widget
+										sed -i "s/minimum_height[[:space:]]*=[[:space:]]*[0-9]*/minimum_height = $minimum_height/" $archivo_widget
+
+									elif [[ $sintaxis = "sintaxis_antigua" ]]; then
+										echo $sintaxis
+
+										alignment=$(echo $widget | cut -d ";" -f 3)
+
+										gap_x=$(echo $widget | cut -d ";" -f 4)
+										gap_y=$(echo $widget | cut -d ";" -f 5)
+
+										own_window_transparent=$(echo $widget | cut -d ";" -f 6)
+										own_window_colour=$(echo $widget | cut -d ";" -f 7)
+										own_window_argb_visual=$(echo $widget | cut -d ";" -f 8)
+										own_window_argb_value=$(echo $widget | cut -d ";" -f 9)
+
+										minimum_size=$(echo $widget | cut -d ";" -f 10)
+
+										
+										sed -i "s/alignment .*/alignment $alignment/g" $archivo_widget
+
+										sed -i "s/gap_x .*/gap_x $gap_x/g" $archivo_widget
+										sed -i "s/gap_y .*/gap_y $gap_y/g" $archivo_widget
+
+										sed -i "s/own_window_transparent .*/own_window_transparent $own_window_transparent/g" $archivo_widget
+										sed -i "s/own_window_colour .*/own_window_colour $own_window_colour/g" $archivo_widget
+										sed -i "s/own_window_argb_visual .*/own_window_argb_visual $own_window_argb_visual/g" $archivo_widget
+										sed -i "s/own_window_argb_value .*/own_window_argb_value $own_window_argb_value/g" $archivo_widget
+
+										sed -i "s/minimum_size .*/minimum_size $minimum_size/g" $archivo_widget
+
+									else
+
+										echo formato de respaldo viejo
+
+										alignment=$(echo $widget | cut -d ";" -f 2)
+
+										gap_x=$(echo $widget | cut -d ";" -f 3)
+										gap_y=$(echo $widget | cut -d ";" -f 4)
+
+										own_window_transparent=$(echo $widget | cut -d ";" -f 5)
+										own_window_colour=$(echo $widget | cut -d ";" -f 6)
+										own_window_argb_visual=$(echo $widget | cut -d ";" -f 7)
+										own_window_argb_value=$(echo $widget | cut -d ";" -f 8)
+
+										minimum_size=$(echo $widget | cut -d ";" -f 9)
+
+										
+										sed -i "s/alignment .*/alignment $alignment/g" $archivo_widget
+
+										sed -i "s/gap_x .*/gap_x $gap_x/g" $archivo_widget
+										sed -i "s/gap_y .*/gap_y $gap_y/g" $archivo_widget
+
+										sed -i "s/own_window_transparent .*/own_window_transparent $own_window_transparent/g" $archivo_widget
+										sed -i "s/own_window_colour .*/own_window_colour $own_window_colour/g" $archivo_widget
+										sed -i "s/own_window_argb_visual .*/own_window_argb_visual $own_window_argb_visual/g" $archivo_widget
+										sed -i "s/own_window_argb_value .*/own_window_argb_value $own_window_argb_value/g" $archivo_widget
+
+										sed -i "s/minimum_size .*/minimum_size $minimum_size/g" $archivo_widget
+									fi
 
 								done
 

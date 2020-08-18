@@ -30,29 +30,60 @@ for usuario in $(ls /home); do
 			
 			for j in $(find $carpeta_widgets_conky -type f ); do
 			
-				widget=$(grep -E "^[\ \t]*TEXT" $j)
+				echo $j
+
+				filtrar_comentados="^[[:space:]]*(\#|--).*[a-z A-Z]"
+				sintaxis=""
+
+				#verificar si es nueva sintaxis de conky
+				widget=$(grep -E "^[\ \t]*conky.text[\ \t]*=[\ \t]*\[\[" $j)
 
 				#si es un widget de conky
 				if [[ $widget ]]; then
+					sintaxis="sintaxis_nueva"
 
-					filtrar_comentados="^[\ \t]*\#.*[a-z A-Z]"
+					alignment=$(grep alignment $j |  grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)alignment"| cut -d "=" -f 2 | sed -n '$p')
 
-					alignment=$(grep alignment $j |  grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+					gap_x=$(grep gap_x $j |  grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)gap_x"| cut -d "=" -f 2 | sed -n '$p')
+					gap_y=$(grep gap_y $j | grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)gap_y"| cut -d "=" -f 2 | sed -n '$p')
 
-					gap_x=$(grep gap_x $j |  grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
-					gap_y=$(grep gap_y $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+					own_window_transparent=$(grep own_window_transparent $j | grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)own_window_transparent"| cut -d "=" -f 2 | sed -n '$p')
+					own_window_colour=$(grep own_window_colour $j | grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)own_window_colour"| cut -d "=" -f 2 | sed -n '$p')
+					own_window_argb_visual=$(grep own_window_argb_visual $j | grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)own_window_argb_visual"| cut -d "=" -f 2 | sed -n '$p')
+					own_window_argb_value=$(grep own_window_argb_value $j | grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)own_window_argb_value"| cut -d "=" -f 2 | sed -n '$p')
 
-					own_window_transparent=$(grep own_window_transparent $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
-					own_window_colour=$(grep own_window_colour $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
-					own_window_argb_visual=$(grep own_window_argb_visual $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
-					own_window_argb_value=$(grep own_window_argb_value $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
-
-					minimum_size=$(grep minimum_size $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2,3)
+					minimum_width=$(grep minimum_width $j | grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)minimum_width"| cut -d "=" -f 2 | sed -n '$p')
+					minimum_height=$(grep minimum_height $j | grep -v -E "$filtrar_comentados" | sed "s|,|\n|g" | grep -E "(^|[[:space:]]+)minimum_height"| cut -d "=" -f 2 | sed -n '$p')
 					
-					echo $j\;$alignment\;$gap_x\;$gap_y\;$own_window_transparent\;$own_window_colour\;$own_window_argb_visual\;$own_window_argb_value\;$minimum_size >> $archivo_respaldo
+					echo $j\;$sintaxis\;$alignment\;$gap_x\;$gap_y\;$own_window_transparent\;$own_window_colour\;$own_window_argb_visual\;$own_window_argb_value\;$minimum_width\;$minimum_height\
+					| sed "s|[[:space:]]||g" >> $archivo_respaldo
+					
+				else
+					widget=$(grep -E "^[\ \t]*TEXT" $j)
+
+					#si es un widget de conky con sintaxis vieja
+					if [[ $widget ]]; then
+
+						sintaxis="sintaxis_antigua"
+
+						alignment=$(grep alignment $j |  grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+
+						gap_x=$(grep gap_x $j |  grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+						gap_y=$(grep gap_y $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+
+						own_window_transparent=$(grep own_window_transparent $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+						own_window_colour=$(grep own_window_colour $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+						own_window_argb_visual=$(grep own_window_argb_visual $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+						own_window_argb_value=$(grep own_window_argb_value $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2)
+
+						minimum_size=$(grep minimum_size $j | grep -v -E "$filtrar_comentados" | cut -d " " -f 2,3)
+						
+						echo $j\;$sintaxis\;$alignment\;$gap_x\;$gap_y\;$own_window_transparent\;$own_window_colour\;$own_window_argb_visual\;$own_window_argb_value\;$minimum_size >> $archivo_respaldo
 
 
+					fi
 				fi
+
 			
 			done
 
