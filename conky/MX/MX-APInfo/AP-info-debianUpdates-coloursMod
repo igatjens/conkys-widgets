@@ -34,8 +34,8 @@ conky.config = {
 	own_window_argb_value = 255,
 	own_window_colour = '000000',
 
-	minimum_width = '200',
-	minimum_height = '200',
+	minimum_width = 200,
+	minimum_height = 200,
 	maximum_width = 400,
 
 	gap_x = 20,
