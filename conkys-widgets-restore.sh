@@ -81,15 +81,14 @@ for usuario in $(ls /home); do
 							if [[ archivo_respaldo ]]; then
 
 								for widget in $archivo_respaldo; do
-
-									echo $widget
 									
 									archivo_widget=$(echo $widget | cut -d ";" -f 1)
+
+									echo $archivo_widget
 
 									sintaxis=$(echo $widget | cut -d ";" -f 2)
 
 									if [[ $sintaxis = "sintaxis_nueva" ]]; then
-										echo $sintaxis
 
 										alignment=$(echo $widget | cut -d ";" -f 3)
 
@@ -104,23 +103,20 @@ for usuario in $(ls /home); do
 										minimum_width=$(echo $widget | cut -d ";" -f 10)
 										minimum_height=$(echo $widget | cut -d ";" -f 11)
 
-										#echo $alignment
-
-										sed -i "s/alignment[[:space:]]*=[[:space:]]*'[[:ascii:]]'/alignment = $alignment/" $archivo_widget
+										sed -i "s/alignment[[:space:]]*=[[:space:]]*'[[:alnum:]_-]*'/alignment = $alignment/" $archivo_widget
 
 										sed -i "s/gap_x[[:space:]]*=[[:space:]]*[0-9]*/gap_x = $gap_x/" $archivo_widget
 										sed -i "s/gap_y[[:space:]]*=[[:space:]]*[0-9]*/gap_y = $gap_y/" $archivo_widget
 
-										sed -i "s/own_window_transparent[[:space:]]*=[[:space:]]*[a-zA-z]*/own_window_transparent = $own_window_transparent/" $archivo_widget
-										sed -i "s/own_window_colour[[:space:]]*=[[:space:]]*'[0-9a-zA-Z]*'/own_window_colour = $own_window_colour/" $archivo_widget
-										sed -i "s/own_window_argb_visual[[:space:]]*=[[:space:]]*[a-zA-z]*/own_window_argb_visual = $own_window_argb_visual/" $archivo_widget
+										sed -i "s/own_window_transparent[[:space:]]*=[[:space:]]*[A-Za-z]*/own_window_transparent = $own_window_transparent/" $archivo_widget
+										sed -i "s/own_window_colour[[:space:]]*=[[:space:]]*'[0-9A-Za-z]*'/own_window_colour = $own_window_colour/" $archivo_widget
+										sed -i "s/own_window_argb_visual[[:space:]]*=[[:space:]]*[A-Za-z]*/own_window_argb_visual = $own_window_argb_visual/" $archivo_widget
 										sed -i "s/own_window_argb_value[[:space:]]*=[[:space:]]*[0-9]*/own_window_argb_value = $own_window_argb_value/" $archivo_widget
 
 										sed -i "s/minimum_width[[:space:]]*=[[:space:]]*[0-9]*/minimum_width = $minimum_width/" $archivo_widget
 										sed -i "s/minimum_height[[:space:]]*=[[:space:]]*[0-9]*/minimum_height = $minimum_height/" $archivo_widget
 
 									elif [[ $sintaxis = "sintaxis_antigua" ]]; then
-										echo $sintaxis
 
 										alignment=$(echo $widget | cut -d ";" -f 3)
 
@@ -148,8 +144,6 @@ for usuario in $(ls /home); do
 										sed -i "s/minimum_size .*/minimum_size $minimum_size/g" $archivo_widget
 
 									else
-
-										echo formato de respaldo viejo
 
 										alignment=$(echo $widget | cut -d ";" -f 2)
 

@@ -1,0 +1,22 @@
+
+Fuentes
+fonts → deb/conkys-widgets_2.3_all/tmp/conkys-widgets/.fonts
+
+Conkys
+conky → deb/conkys-widgets_2.3_all/tmp/conkys-widgets/.conky
+
+Scripts
+conkys-widgets-backup.sh → deb/conkys-widgets_2.3_all/tmp/conkys-widgets/
+conkys-widgets-restore.sh → deb/conkys-widgets_2.3_all/tmp/conkys-widgets/
+
+Cambios
+usr/share/doc/conkys-widgets/changelog.gz
+
+Suma de verificación
+/deb/conkys-widgets_2.3_all/DEBIAN/md5sums
+
+Actualizar preinst postinst etc
+/deb/conkys-widgets_2.3_all/DEBIAN/
+
+Actualizar control
+/deb/conkys-widgets_2.3_all/DEBIAN/control
