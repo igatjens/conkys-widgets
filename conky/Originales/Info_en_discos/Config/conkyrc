@@ -72,17 +72,17 @@ ${font Play:normal:size=7}${voffset 2}${goto 120}${color1}CPU 4${alignr 330}${co
 ${goto 50}${voffset 16}${font Play:normal:size=7}${color1}${top name 1}${alignr 306}${top cpu 1}%
 ${goto 50}${font Play:normal:size=7}${color1}${top name 2}${alignr 306}${top cpu 2}%
 ${goto 50}${font Play:normal:size=7}${color1}${top name 3}${alignr 306}${top cpu 3}%
-${font Michroma:size=10}${color0}${goto 60}${voffset -110}CPU
+${font Michroma:size=10}${color0}${goto 60}${voffset -137}CPU
 ${font Michroma:size=10}${color0}${goto 394}${voffset 185}MEMORY
 ${goto 324}${voffset -6}${font Play:normal:size=7}${color1}${top_mem name 1}${alignr 40}${top_mem mem 1}%
 ${goto 324}${font Play:normal:size=7}${color1}${top_mem name 2}${alignr 40}${top_mem mem 2}%
 ${goto 324}${font Play:normal:size=7}${color1}${top_mem name 3}${alignr 40}${top_mem mem 3}%
 ${font Play:normal:size=7}${voffset 14}${goto 348}${color1}SWAP${alignr 40}${color1}${swap} / ${color1}${swapmax}
 ${font Play:normal:size=7}${voffset 4}${goto 348}${color1}RAM ${alignr 40}${color1}${mem} / ${color1}${memmax}
-${font Play:normal:size=7}${goto 80}${voffset -50}Root${color1}${alignr 310}${fs_used /} / ${fs_size /}
+${font Play:normal:size=7}${goto 80}${voffset -68}Root${color1}${alignr 310}${fs_used /} / ${fs_size /}
 ${font Play:normal:size=7}${goto 80}${voffset 0}Home${alignr 310}${color1}${fs_used /home} / ${fs_size /home}
 ${font Play:normal:size=7}${goto 80}${voffset 0}Usr${alignr 310}${color1}${fs_used /usr} / ${fs_size /usr}
-${font Michroma:size=10}${color0}${goto 66}${voffset -50}HARD  DRIVE
+${font Michroma:size=10}${color0}${goto 66}${voffset -57}HARD  DRIVE
 ${font Michroma:size=10}${color0}${voffset 85}${goto 324}INTERNET  INFO
 # EDITION FINIR WLAN
 ${if_existing /proc/net/route wlan0}${font Play:normal:size=7}${color1}${alignr 54}${voffset -8}WiFi  ${color1}${wireless_essid wlp3s0}
@@ -104,5 +104,5 @@ ${font Michroma:size=18}${goto 118}${color1}${voffset -4}${time %H}:${time %M}
 ${font Michroma:size=8}${color0}${goto 296}${voffset 18}BATTERY
 ${font Play:size=8}${color0}${goto 278}${voffset 4}${color1}${battery_percent BAT0}%${endif}${endif}
 #${font Play:normal:size=7}${goto 180}Uptime${color1}${alignr 100}${uptime_short}
-${font Michroma:size=11}${color0}${voffset 20}${alignr 130} $kernel${offset 4} ${machine}
+${font Michroma:size=11}${color0}${voffset 135}${alignr 130} $kernel${offset 4} ${machine}
 #${execpi 53 $HOME/.conky/nagios.sh}

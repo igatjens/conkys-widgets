@@ -1,2 +1,3 @@
-sleep 5s
-killall conky
+# No widgets enabled!
+
+exit 0
